@@ -41,7 +41,7 @@ export function usePageTitle(title: string, description?: string) {
       ? window.location.origin
       : 'https://lidemaleri.se';
     const absoluteUrl = `${origin}${pathname === '/' ? '' : pathname}`;
-    const ogImageUrl = `${origin}/og-image.png`;
+    const ogImageUrl = `${origin}/logo.png`;
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
