@@ -1,29 +1,39 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import Button from './Button';
-
 import images from '../data/images';
 
-interface ReferenceItem {
+interface ProjectItem {
   id: string;
   image: string;
   alt: string;
+  title: string;
+  category: string;
 }
 
-const references: ReferenceItem[] = images.gallery.map((g, i) => ({
+const portfolioList: ProjectItem[] = (images.portfolio && images.portfolio.length > 0
+  ? images.portfolio
+  : images.gallery.map((g, i) => ({
+      image: g,
+      title: `Måleriprojekt ${i + 1}`,
+      category: 'Måleri',
+    }))
+).map((item, i) => ({
   id: String(i + 1),
-  image: g.url,
-  alt: g.alt,
+  image: typeof item.image === 'string' ? item.image : item.image.url,
+  alt: typeof item.image === 'string' ? item.title : item.image.alt,
+  title: item.title,
+  category: item.category,
 }));
-
 
 export default function ProjectsGallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [isPaused, setIsPaused] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
 
-  const total = references.length;
+  const total = portfolioList.length;
 
   const handlePrev = useCallback(() => {
     setLightboxIndex((prev) => (prev === null ? 0 : (prev - 1 + total) % total));
@@ -53,14 +63,18 @@ export default function ProjectsGallery() {
     };
   }, [lightboxIndex, handlePrev, handleNext]);
 
+  // Create tripled list for seamless infinite marquee scroll
+  const marqueeItems = [...portfolioList, ...portfolioList, ...portfolioList];
+
   return (
     <section
       id="projekt"
       style={{
-        background: 'radial-gradient(ellipse at 50% 40%, rgba(234, 88, 12, 0.03) 0%, transparent 65%), #f8fafc',
-        padding: 'clamp(58px, 7.5vw, 92px) 0',
+        background: 'radial-gradient(ellipse at 50% 40%, rgba(194, 132, 71, 0.05) 0%, transparent 65%), #f8fafc',
+        padding: 'clamp(64px, 8vw, 100px) 0',
         position: 'relative',
         borderTop: '1px solid #e2e8f0',
+        overflow: 'hidden',
       }}
     >
       <div
@@ -68,38 +82,29 @@ export default function ProjectsGallery() {
           maxWidth: 'var(--container-max)',
           margin: '0 auto',
           padding: '0 clamp(20px, 5vw, 40px)',
+          marginBottom: '36px',
         }}
       >
-        {/* Clean Authentic Split-Header */}
-        <div style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'flex-end',
-          flexWrap: 'wrap',
-          gap: '20px',
-          marginBottom: '32px',
-        }}>
+        {/* Header */}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-end',
+            flexWrap: 'wrap',
+            gap: '24px',
+          }}
+        >
           <div>
             <ScrollReveal animation="fade-right">
-              <span style={{
-                color: 'var(--color-primary)',
-                fontWeight: 700,
-                fontSize: '0.82rem',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                display: 'block',
-                marginBottom: '8px',
-              }}>
-                Utförda projekt
-              </span>
               <h2
                 style={{
                   color: 'var(--color-text-dark)',
                   fontWeight: 800,
-                  fontSize: 'clamp(1.9rem, 3.4vw, 2.6rem)',
-                  letterSpacing: '-0.025em',
+                  fontSize: 'clamp(2rem, 3.6vw, 2.7rem)',
+                  letterSpacing: '-0.03em',
                   margin: 0,
-                  lineHeight: 1.2,
+                  lineHeight: 1.18,
                 }}
               >
                 Ett urval av våra referenser
@@ -107,340 +112,329 @@ export default function ProjectsGallery() {
             </ScrollReveal>
           </div>
 
-          <div style={{ maxWidth: '400px' }}>
+          <div style={{ maxWidth: '440px' }}>
             <ScrollReveal animation="fade-left" delay={100}>
               <p
                 style={{
                   color: 'var(--color-gray-600)',
                   fontSize: '0.96rem',
-                  lineHeight: 1.6,
+                  lineHeight: 1.65,
                   margin: 0,
                 }}
               >
-                Ett urval av våra utförda byggprojekt och renoveringar. Klicka på valfri bild för fullskärmsvy.
+                Här kan du se exempel på våra färdigställda måleriprojekt i Dalarna. Hovra över bandet för att pausa eller klicka på en bild för att förstora.
               </p>
             </ScrollReveal>
           </div>
         </div>
+      </div>
 
-        {/* 6-Image Dynamic Ratio Collage Grid */}
+      {/* ── CONTINUOUS SCROLLING TAPE (RULLANDE BAND) ────────────────────── */}
+      <div
+        className="marquee-container"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        style={{
+          position: 'relative',
+          width: '100%',
+          overflow: 'hidden',
+          padding: '16px 0 24px 0',
+          cursor: 'grab',
+        }}
+      >
+        {/* Left & Right Soft Fade Gradients */}
+        <div className="marquee-fade marquee-fade-left" />
+        <div className="marquee-fade marquee-fade-right" />
+
         <div
-          className="collage-grid"
-          onMouseLeave={() => setHoveredIndex(null)}
+          ref={trackRef}
+          className={`marquee-track ${isPaused ? 'paused' : ''}`}
         >
-          {references.map((item, idx) => {
-            const isHovered = hoveredIndex === idx;
-            const isAnyHovered = hoveredIndex !== null;
-
+          {marqueeItems.map((item, idx) => {
+            const originalIndex = idx % total;
             return (
               <div
-                key={item.id}
-                className={`collage-item collage-item-${idx + 1} ${isHovered ? 'hovered' : ''} ${isAnyHovered && !isHovered ? 'dimmed' : ''}`}
-                onClick={() => setLightboxIndex(idx)}
-                onMouseEnter={() => setHoveredIndex(idx)}
+                key={`${item.id}-${idx}`}
+                className="marquee-card"
+                onClick={() => setLightboxIndex(originalIndex)}
                 role="button"
                 tabIndex={0}
-                aria-label={`Visa referensbild ${idx + 1}`}
+                aria-label={`Visa bild ${originalIndex + 1}`}
               >
-                <img
-                  src={item.image}
-                  alt={item.alt}
-                  loading="lazy"
-                  className="collage-card-img"
-                />
+                <div className="marquee-img-wrapper">
+                  <img
+                    src={item.image}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="marquee-card-img"
+                  />
+                </div>
               </div>
             );
           })}
         </div>
-
-        {/* Bottom CTA */}
-        <div style={{ textAlign: 'center', marginTop: '40px' }}>
-          <ScrollReveal animation="fade-up" delay={100}>
-            <Button variant="primary" href="/offert" size="md">
-              Begär offert för ditt projekt
-            </Button>
-          </ScrollReveal>
-        </div>
       </div>
 
-      {/* Lightbox Modal via Portal directly to body */}
-      {lightboxIndex !== null && typeof document !== 'undefined' && createPortal(
-        <div
-          className="ref-modal-backdrop"
-          onClick={() => setLightboxIndex(null)}
-        >
-          {/* Close Button */}
-          <button
-            onClick={() => setLightboxIndex(null)}
-            className="ref-modal-close"
-            aria-label="Stäng"
-          >
-            <X size={24} />
-          </button>
-
-          {/* Previous Arrow */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handlePrev();
-            }}
-            className="ref-modal-arrow prev"
-            aria-label="Föregående bild"
-          >
-            <ChevronLeft size={30} />
-          </button>
-
-          {/* Next Arrow */}
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNext();
-            }}
-            className="ref-modal-arrow next"
-            aria-label="Nästa bild"
-          >
-            <ChevronRight size={30} />
-          </button>
-
-          {/* Modal Image Wrapper */}
-          <div
-            className="ref-modal-dialog"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={references[lightboxIndex].image}
-              alt={references[lightboxIndex].alt}
-              className="ref-modal-img"
-            />
-            <div className="ref-modal-counter">
-              {lightboxIndex + 1} / {total}
-            </div>
+      {/* Bottom CTA */}
+      <div style={{ textAlign: 'center', marginTop: '36px' }}>
+        <ScrollReveal animation="fade-up" delay={100}>
+          <div style={{ display: 'inline-flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+            <Button variant="primary" href="/offert" size="lg">
+              Begär offert för ditt projekt
+            </Button>
+            <span style={{ fontSize: '0.85rem', color: 'var(--color-gray-600)' }}>
+              Kostnadsfri offert & rådgivning inom 24 timmar
+            </span>
           </div>
-        </div>,
-        document.body
-      )}
+        </ScrollReveal>
+      </div>
 
+      {/* ── LIGHTBOX MODAL ──────────────────────────────────────────────── */}
+      {lightboxIndex !== null &&
+        createPortal(
+          <div
+            className="lightbox-overlay"
+            onClick={() => setLightboxIndex(null)}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 9999,
+              background: 'rgba(10, 15, 29, 0.94)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '24px',
+            }}
+          >
+            {/* Close Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                setLightboxIndex(null);
+              }}
+              style={{
+                position: 'absolute',
+                top: '24px',
+                right: '24px',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '50%',
+                width: '46px',
+                height: '46px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                zIndex: 10,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.22)';
+                e.currentTarget.style.transform = 'scale(1.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'scale(1)';
+              }}
+              aria-label="Stäng fullskärmsläge"
+            >
+              <X size={22} />
+            </button>
+
+            {/* Prev Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handlePrev();
+              }}
+              style={{
+                position: 'absolute',
+                left: '24px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                zIndex: 10,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+              }}
+              aria-label="Föregående bild"
+            >
+              <ChevronLeft size={26} />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleNext();
+              }}
+              style={{
+                position: 'absolute',
+                right: '24px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                background: 'rgba(255, 255, 255, 0.1)',
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                borderRadius: '50%',
+                width: '50px',
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#ffffff',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                zIndex: 10,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.25)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1.08)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.1)';
+                e.currentTarget.style.transform = 'translateY(-50%) scale(1)';
+              }}
+              aria-label="Nästa bild"
+            >
+              <ChevronRight size={26} />
+            </button>
+
+            {/* Lightbox Content */}
+            <div
+              onClick={(e) => e.stopPropagation()}
+              style={{
+                position: 'relative',
+                maxWidth: '90vw',
+                maxHeight: '85vh',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}
+            >
+              <img
+                src={portfolioList[lightboxIndex].image}
+                alt={portfolioList[lightboxIndex].alt}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '85vh',
+                  objectFit: 'contain',
+                  borderRadius: '16px',
+                  boxShadow: '0 25px 60px rgba(0, 0, 0, 0.7)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                }}
+              />
+            </div>
+          </div>,
+          document.body
+        )}
+
+      {/* ── STYLES ─────────────────────────────────────────────────────── */}
       <style>{`
-        /* Desktop Dynamic Ratio 2-Row Collage */
-        .collage-grid {
-          display: grid;
-          grid-template-columns: repeat(12, 1fr);
-          grid-auto-rows: 250px;
-          gap: 20px;
+        .marquee-track {
+          display: flex;
+          gap: 24px;
+          width: max-content;
+          animation: marqueeScroll 36s linear infinite;
+          will-change: transform;
         }
 
-        .collage-item {
-          position: relative;
-          border-radius: 16px;
+        .marquee-track.paused {
+          animation-play-state: paused;
+        }
+
+        @keyframes marqueeScroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-100% / 3));
+          }
+        }
+
+        .marquee-card {
+          width: 360px;
+          height: 270px;
+          flex-shrink: 0;
+          border-radius: 18px;
           overflow: hidden;
-          background: #e2e8f0;
-          border: 1px solid rgba(15, 23, 42, 0.08);
+          position: relative;
+          background: #0f172a;
+          border: 1.5px solid rgba(226, 232, 240, 0.9);
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
           cursor: pointer;
-          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.3s ease;
-          box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
+          transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
         }
 
-        /* Row 1: 5 cols (Wide) + 4 cols (Med) + 3 cols (Compact) */
-        .collage-item-1 {
-          grid-column: span 5;
+        .marquee-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          border-color: rgba(194, 132, 71, 0.6);
+          box-shadow: 0 20px 45px rgba(15, 23, 42, 0.16), 0 0 0 2px rgba(194, 132, 71, 0.25);
         }
 
-        .collage-item-2 {
-          grid-column: span 4;
+        .marquee-img-wrapper {
+          width: 100%;
+          height: 100%;
+          position: relative;
+          overflow: hidden;
         }
 
-        .collage-item-3 {
-          grid-column: span 3;
-        }
-
-        /* Row 2: 3 cols (Compact) + 4 cols (Med) + 5 cols (Wide) */
-        .collage-item-4 {
-          grid-column: span 3;
-        }
-
-        .collage-item-5 {
-          grid-column: span 4;
-        }
-
-        .collage-item-6 {
-          grid-column: span 5;
-        }
-
-        .collage-card-img {
+        .marquee-card-img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
-          user-select: none;
-          transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .collage-item.hovered {
-          transform: translateY(-5px);
-          border-color: rgba(234, 88, 12, 0.35);
-          box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(234, 88, 12, 0.2);
-          z-index: 2;
+        .marquee-card:hover .marquee-card-img {
+          transform: scale(1.08);
         }
 
-        .collage-item.hovered .collage-card-img {
-          transform: scale(1.035);
-        }
-
-        .collage-item.dimmed {
-          opacity: 0.76;
-        }
-
-        /* Lightbox Modal (Directly on body) */
-        .ref-modal-backdrop {
-          position: fixed;
+        .marquee-fade {
+          position: absolute;
           top: 0;
-          left: 0;
-          right: 0;
           bottom: 0;
-          width: 100vw;
-          height: 100vh;
-          background: rgba(10, 15, 29, 0.95);
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-          z-index: 999999;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 24px;
-          margin: 0;
-          box-sizing: border-box;
-          animation: modalFadeIn 0.2s ease;
+          width: 80px;
+          pointer-events: none;
+          z-index: 5;
         }
 
-        .ref-modal-dialog {
-          position: relative;
-          max-width: 90vw;
-          max-height: 85vh;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          animation: modalScaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-          z-index: 1000000;
+        .marquee-fade-left {
+          left: 0;
+          background: linear-gradient(90deg, #f8fafc 0%, transparent 100%);
         }
 
-        .ref-modal-img {
-          max-width: 88vw;
-          max-height: 80vh;
-          width: auto;
-          height: auto;
-          object-fit: contain;
-          border-radius: 12px;
-          box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        .marquee-fade-right {
+          right: 0;
+          background: linear-gradient(-90deg, #f8fafc 0%, transparent 100%);
         }
 
-        .ref-modal-counter {
-          color: rgba(255, 255, 255, 0.75);
-          font-size: 0.9rem;
-          font-weight: 500;
-          margin-top: 14px;
-          letter-spacing: 0.05em;
-        }
-
-        .ref-modal-close {
-          position: fixed;
-          top: 24px;
-          right: 24px;
-          width: 46px;
-          height: 46px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.12);
-          color: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          z-index: 1000001;
-          transition: all 0.2s ease;
-        }
-
-        .ref-modal-close:hover {
-          background: rgba(255, 255, 255, 0.25);
-          transform: scale(1.06);
-        }
-
-        .ref-modal-arrow {
-          position: fixed;
-          top: 50%;
-          transform: translateY(-50%);
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.12);
-          color: #ffffff;
-          border: 1px solid rgba(255, 255, 255, 0.25);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          z-index: 1000001;
-          transition: all 0.2s ease;
-        }
-
-        .ref-modal-arrow:hover {
-          background: rgba(255, 255, 255, 0.25);
-          transform: translateY(-50%) scale(1.08);
-        }
-
-        .ref-modal-arrow.prev {
-          left: 24px;
-        }
-
-        .ref-modal-arrow.next {
-          right: 24px;
-        }
-
-        @keyframes modalFadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-
-        @keyframes modalScaleUp {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Tablet & Mobile Fallbacks (Simple, non-messy) */
-        @media (max-width: 900px) {
-          .collage-grid {
-            grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: unset;
-            gap: 16px;
+        @media (max-width: 768px) {
+          .marquee-card {
+            width: 290px;
+            height: 220px;
           }
-          .collage-item-1,
-          .collage-item-2,
-          .collage-item-3,
-          .collage-item-4,
-          .collage-item-5,
-          .collage-item-6 {
-            grid-column: span 1 !important;
-            aspect-ratio: 4 / 3;
-          }
-        }
-
-        @media (max-width: 580px) {
-          .collage-grid {
-            grid-template-columns: 1fr;
-            gap: 14px;
-          }
-          .collage-item {
-            aspect-ratio: 4 / 3;
-          }
-          .ref-modal-close {
-            top: 16px;
-            right: 16px;
-            width: 40px;
-            height: 40px;
-          }
-          .ref-modal-img {
-            max-width: 92vw;
-            max-height: 70vh;
+          .marquee-fade {
+            width: 30px;
           }
         }
       `}</style>

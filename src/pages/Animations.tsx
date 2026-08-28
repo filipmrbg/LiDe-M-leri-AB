@@ -203,9 +203,9 @@ function PreviewCard({ def, globalTick }: CardProps) {
             transition: `opacity ${def.duration} ${def.easing}, transform ${def.duration} ${def.easing}, filter ${def.duration} ${def.easing}, clip-path ${def.duration} ${def.easing}`,
             willChange: 'opacity, transform, filter, clip-path',
           }}
-          className="bg-gradient-to-br from-orange-500 to-orange-600 text-white rounded-xl shadow-xl px-8 py-6 text-center"
+          className="bg-gradient-to-br from-emerald-700 to-teal-900 text-white rounded-xl shadow-xl px-8 py-6 text-center"
         >
-          <div className="text-2xl font-bold tracking-tight">Dannes Bygg & Entreprenad AB</div>
+          <div className="text-2xl font-bold tracking-tight">LiDe Måleri AB</div>
           <div className="text-sm opacity-90 mt-1">Animation preview</div>
         </div>
       </div>

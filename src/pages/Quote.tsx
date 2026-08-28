@@ -14,15 +14,15 @@ const container: React.CSSProperties = {
 const faqItems = [
   {
     question: 'Kostar platsbesöket något?',
-    answer: 'Nej, platsbesök och offert är alltid kostnadsfritt. Vi besöker din fastighet, mäter höjder, kollar förutsättningar och tar fram ett tydligt prisförslag helt utan förbindelser.',
+    answer: 'Nej, platsbesök och offert är alltid kostnadsfritt. Vi besöker ditt hem eller din fastighet, kollar underlag och förutsättningar och tar fram ett tydligt prisförslag helt utan förbindelser.',
   },
   {
-    question: 'Hur snabbt kan ni påbörja projektet?',
-    answer: 'Det styrs av projektets storlek samt vår nuvarande kapacitet och planering. Mindre jobb kan vi ofta påbörja inom två veckor, medan större projekt planeras in med god framförhållning.',
+    question: 'Hur snabbt kan ni påbörja måleriarbetet?',
+    answer: 'Det styrs av projektets storlek samt säsong och planering. Mindre invändiga jobb kan vi ofta påbörja inom 1–2 veckor, medan större fasadarbeten planeras in under utomhussäsongen.',
   },
   {
-    question: 'Fungerar ROT avdrag för era tjänster?',
-    answer: 'Ja, för godkända renoverings och ombyggnadsarbeten på din bostad drar vi av ROT avdraget på 30 % av arbetskostnaden direkt på fakturan.',
+    question: 'Fungerar ROT avdrag för era måleritjänster?',
+    answer: 'Ja, för godkända måleri- och tapetseringsarbeten i din bostad drar vi av ROT avdraget på 30 % av arbetskostnaden direkt på fakturan.',
   },
 ];
 
@@ -44,7 +44,7 @@ const inputStyle: React.CSSProperties = {
 
 function focusInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.currentTarget.style.borderColor = 'var(--color-primary)';
-  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(234, 88, 12, 0.15)';
+  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(194, 132, 71, 0.15)';
 }
 function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
   e.currentTarget.style.borderColor = '#e5e7eb';
@@ -53,8 +53,8 @@ function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | 
 
 export default function Quote() {
   usePageTitle(
-    'Begär offert | Dannes Bygg & Entreprenad AB',
-    'Beskriv ditt projekt och begär en kostnadsfri offert för snickeri, renovering, tillbyggnad, altan eller totalentreprenad med 3D-ritningar i Mariestad och Skaraborg.'
+    'Begär offert | LiDe Måleri AB',
+    'Beskriv ditt projekt och begär en kostnadsfri offert för invändigt måleri, fasadmålning, tapetsering eller totalentreprenad i Dalarna med omnejd.'
   );
   const [name, setName]       = useState('');
   const [email, setEmail]     = useState('');
@@ -68,9 +68,9 @@ export default function Quote() {
       {/* ── SECTION A: HERO ───────────────────────────────────── */}
       <section style={{
         position: 'relative',
-        backgroundImage: 'url(/hero-main.webp)',
+        backgroundImage: 'url("https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3G5LlmMYORSdAk8SxzXrK2S0Is5%2Fhf_20260828_123010_dbc2e1dd-3892-42d2-a3ee-7ed3d62c021d.png&w=1920&q=85")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: 'center 45%',
         paddingTop: '140px',
         paddingBottom: '60px',
         textAlign: 'center',
@@ -98,196 +98,233 @@ export default function Quote() {
                 fontSize: '1.05rem',
                 maxWidth: '640px',
                 margin: '20px auto 0',
-                lineHeight: 1.65,
+                lineHeight: 1.6,
               }}>
-                Beskriv ditt projekt nedan så återkommer vi med en specificerad offert och kalkyl inom 24 timmar.
+                Fyll i formuläret nedan och beskriv vad du vill ha hjälp med så återkommer vi med en specificerad kalkyl inom 24 timmar.
               </p>
             </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* ── SECTION B: FORM & TRUST ───────────────────────────── */}
-      <section style={{ padding: 'clamp(60px, 8vw, 100px) 0', background: 'var(--color-light)' }}>
+      {/* ── SECTION B: FORM & TRUST CARDS ─────────────────────── */}
+      <section style={{ background: 'var(--color-light)', padding: '80px 0' }}>
         <div style={container}>
-          <div style={{
+          <div className="quote-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'minmax(0, 1fr) 340px',
-            gap: '48px',
+            gridTemplateColumns: '55% 45%',
+            gap: '50px',
             alignItems: 'start',
-          }} className="quote-grid">
+          }}>
 
-            {/* Form */}
-            <ScrollReveal animation="fade-right">
+            {/* Left: Form */}
+            <ScrollReveal animation="fade-right" duration={0.8}>
               <div style={{
-                background: '#ffffff',
-                border: '1px solid #e5e7eb',
-                borderRadius: '16px',
-                padding: 'clamp(24px, 4vw, 40px)',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.06)',
+                background: 'var(--color-white)',
+                borderRadius: 'var(--border-radius-lg)',
+                padding: '40px',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                border: '1px solid #f0ede8',
               }}>
                 <h2 style={{
                   color: 'var(--color-text-dark)',
-                  fontWeight: 700,
-                  fontSize: '1.4rem',
-                  margin: '0 0 24px 0',
+                  fontWeight: 800,
+                  fontSize: 'clamp(1.4rem, 2.2vw, 1.8rem)',
+                  margin: '0 0 8px 0',
                 }}>
-                  Fyll i dina uppgifter
+                  Beskriv ditt måleriprojekt
                 </h2>
+                <p style={{ color: 'var(--color-gray-600)', fontSize: '0.92rem', margin: '0 0 28px 0', lineHeight: 1.6 }}>
+                  Vi återkopplar vanligtvis samma eller nästkommande arbetsdag.
+                </p>
 
-                <form onSubmit={(e) => e.preventDefault()}>
-                  <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
-                    Namn *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="Ditt för- och efternamn"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    style={inputStyle}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
+                <form onSubmit={(e) => { e.preventDefault(); alert('Tack för din förfrågan! Vi kontaktar dig inom 24 timmar.'); }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }} className="quote-form-row">
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                        Ditt namn *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="För- och efternamn"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        style={inputStyle}
+                        onFocus={focusInput}
+                        onBlur={blurInput}
+                      />
+                    </div>
 
-                  <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
-                    E-postadress *
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="din.epost@doman.se"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    style={inputStyle}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                        Telefonnummer *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="070-000 00 00"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        style={inputStyle}
+                        onFocus={focusInput}
+                        onBlur={blurInput}
+                      />
+                    </div>
+                  </div>
 
-                  <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
-                    Telefonnummer *
-                  </label>
-                  <input
-                    type="tel"
-                    placeholder="07X-XXX XX XX"
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    style={inputStyle}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                      E-postadress *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="din.epost@exempel.se"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      style={inputStyle}
+                      onFocus={focusInput}
+                      onBlur={blurInput}
+                    />
+                  </div>
 
-                  <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
-                    Typ av tjänst
-                  </label>
-                  <select
-                    value={service}
-                    onChange={(e) => setService(e.target.value)}
-                    style={{ ...inputStyle, cursor: 'pointer' }}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                  >
-                    <option value="">Välj tjänst...</option>
-                    <option value="nybyggnation">Nybyggnation</option>
-                    <option value="renovering">Renovering</option>
-                    <option value="tillbyggnad">Tillbyggnad</option>
-                    <option value="totalentreprenad">Totalentreprenad</option>
-                    <option value="annat">Annat projekt</option>
-                  </select>
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                      Typ av tjänst *
+                    </label>
+                    <select
+                      required
+                      value={service}
+                      onChange={(e) => setService(e.target.value)}
+                      style={{ ...inputStyle, cursor: 'pointer' }}
+                      onFocus={focusInput}
+                      onBlur={blurInput}
+                    >
+                      <option value="">Välj tjänst...</option>
+                      <option value="invandigt-maleri">Invändigt Måleri & Snickerier</option>
+                      <option value="fasadmalning">Utvändigt Måleri & Fasad</option>
+                      <option value="tapetsering">Tapetsering & Spackling</option>
+                      <option value="totalentreprenad">Totalentreprenad Måleri</option>
+                      <option value="annat">Annat måleriarbete</option>
+                    </select>
+                  </div>
 
-
-                  <label style={{ display: 'block', marginBottom: '4px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-text-dark)' }}>
-                    Projektbeskrivning *
-                  </label>
-                  <textarea
-                    rows={5}
-                    placeholder="Beskriv ditt projekt så detaljerat du kan (t.ex. yta i kvm, adress, önskad starttid)..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    style={{ ...inputStyle, resize: 'vertical', marginBottom: '24px' }}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                      Projektbeskrivning *
+                    </label>
+                    <textarea
+                      required
+                      rows={5}
+                      placeholder="Berätta om ytan, antal rum, om det gäller fasad, nuvarande skick och önskad tidsram..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      style={{ ...inputStyle, resize: 'vertical' }}
+                      onFocus={focusInput}
+                      onBlur={blurInput}
+                    />
+                  </div>
 
                   <button
                     type="submit"
                     style={{
-                      width: '100%',
-                      padding: '16px',
                       background: 'var(--color-primary)',
                       color: '#ffffff',
                       border: 'none',
-                      borderRadius: '12px',
-                      fontWeight: 700,
+                      padding: '16px 36px',
+                      borderRadius: 'var(--border-radius-pill)',
                       fontSize: '1rem',
+                      fontWeight: 700,
                       cursor: 'pointer',
+                      width: '100%',
+                      fontFamily: 'var(--font-family)',
+                      boxShadow: '0 4px 16px rgba(194, 132, 71, 0.35)',
+                      transition: 'all 0.3s ease',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       gap: '8px',
-                      transition: 'transform 0.2s ease, opacity 0.2s ease',
                     }}
+                    onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
                   >
-                    <Send size={18} /> SKICKA OFFERTFÖRFRÅGAN
+                    <Send size={18} />
+                    Skicka offertförfrågan
                   </button>
                 </form>
               </div>
             </ScrollReveal>
 
-            {/* Sidebar Trust Items */}
-            <ScrollReveal animation="fade-left" delay={150}>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-                <div style={{
-                  background: '#ffffff',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '16px',
-                  padding: '24px',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                    <Clock size={24} color="var(--color-primary)" />
-                    <h3 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-text-dark)' }}>
-                      Svar inom 24 timmar
-                    </h3>
-                  </div>
-                  <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                    Vi går igenom dina uppgifter direkt och skickar en tydlig kalkyl utan dolda avgifter.
+            {/* Right: Trust Points */}
+            <ScrollReveal animation="fade-left" duration={0.8} delay={150}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+                <div>
+                  <h3 style={{
+                    color: 'var(--color-text-dark)',
+                    fontWeight: 800,
+                    fontSize: '1.4rem',
+                    margin: '0 0 16px 0',
+                  }}>
+                    Varför välja LiDe Måleri AB?
+                  </h3>
+                  <p style={{ color: 'var(--color-gray-600)', fontSize: '0.96rem', lineHeight: 1.7, margin: 0 }}>
+                    Vi kombinerar gediget hantverkskunnande med personlig service, fasta priser och högkvalitativa färgval.
                   </p>
                 </div>
 
-                <div style={{
-                  background: '#ffffff',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '16px',
-                  padding: '24px',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                    <ShieldCheck size={24} color="var(--color-primary)" />
-                    <h3 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-text-dark)' }}>
-                      ROT avdrag på fakturan
-                    </h3>
-                  </div>
-                  <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                    Vi drar av ROT avdraget direkt på din faktura när arbetet är berättigat till detta.
-                  </p>
-                </div>
-
-                <div style={{
-                  background: '#ffffff',
-                  border: '1px solid #e5e7eb',
-                  borderRadius: '16px',
-                  padding: '24px',
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>
-                    <Award size={24} color="var(--color-primary)" />
-                    <h3 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-text-dark)' }}>
-                      Trygga villkor
-                    </h3>
-                  </div>
-                  <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.6 }}>
-                    Innehar F-skattsedel, ansvarsförsäkring och lämnar skriftliga garantier på allt utfört arbete.
-                  </p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                  {[
+                    {
+                      icon: ShieldCheck,
+                      title: 'Trygghetsgaranti',
+                      desc: 'Fullständig garanti på allt utfört måleriarbete och material enligt gällande branschstandard.',
+                    },
+                    {
+                      icon: Clock,
+                      title: 'Snabba besked & tidsplan',
+                      desc: 'Specificerad offert inom 24 timmar och punktlig leverans enligt överenskommelse.',
+                    },
+                    {
+                      icon: Award,
+                      title: '30% ROT-avdrag direkt',
+                      desc: 'Vi administrerar hela ROT-avdraget direkt mot Skatteverket och drar beloppet på fakturan.',
+                    },
+                  ].map(({ icon: Icon, title, desc }, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        background: 'var(--color-white)',
+                        borderRadius: '16px',
+                        padding: '22px 24px',
+                        border: '1px solid #e5e7eb',
+                        display: 'flex',
+                        gap: '16px',
+                        alignItems: 'flex-start',
+                      }}
+                    >
+                      <div style={{
+                        width: '44px',
+                        height: '44px',
+                        minWidth: '44px',
+                        borderRadius: '12px',
+                        background: 'rgba(194, 132, 71, 0.1)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}>
+                        <Icon size={22} color="var(--color-primary)" />
+                      </div>
+                      <div>
+                        <h4 style={{ margin: '0 0 4px 0', fontWeight: 700, fontSize: '1rem', color: 'var(--color-text-dark)' }}>
+                          {title}
+                        </h4>
+                        <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.55 }}>
+                          {desc}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </ScrollReveal>
@@ -297,39 +334,28 @@ export default function Quote() {
       </section>
 
       {/* ── SECTION C: FAQ ────────────────────────────────────── */}
-      <section style={{ padding: 'clamp(60px, 8vw, 100px) 0', background: '#ffffff' }}>
+      <section style={{ background: '#ffffff', padding: '80px 0', borderTop: '1px solid #e2e8f0' }}>
         <div style={container}>
-          <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-            <ScrollReveal animation="blur-in">
-              <h2 style={{
-                color: 'var(--color-text-dark)',
-                fontWeight: 800,
-                fontSize: 'clamp(1.8rem, 3.5vw, 2.4rem)',
-                margin: '0 0 14px 0',
-              }}>
-                Vanliga frågor inför din offertförfrågan
-              </h2>
-            </ScrollReveal>
-            <ScrollReveal animation="scale-x-center" delay={150} duration={0.6}>
-              <span style={{ display: 'block', width: '50px', height: '3px', background: 'var(--color-primary)', borderRadius: '2px', margin: '0 auto 0 auto' }} />
-            </ScrollReveal>
-          </div>
-
-          <ScrollReveal animation="fade-up" delay={200}>
-            <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-              <FAQAccordion items={faqItems} />
-            </div>
-          </ScrollReveal>
+          <FAQAccordion
+            items={faqItems}
+            title="Vanliga frågor om offerten"
+            subtitle="Här hittar du svar på de vanligaste frågorna inför ditt måleriprojekt."
+          />
         </div>
       </section>
 
-      {/* ── SECTION D: CTA BANNER ─────────────────────────────── */}
+      {/* ── SECTION D: CTA BANNER ──────────────────────────────── */}
       <CTABanner />
 
       <style>{`
         @media (max-width: 900px) {
           .quote-grid {
             grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .quote-form-row {
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
           }
         }
       `}</style>

@@ -168,9 +168,9 @@ export default function FontTester({
         background: 'rgba(15, 23, 42, 0.96)',
         backdropFilter: 'blur(20px)',
         WebkitBackdropFilter: 'blur(20px)',
-        border: '1.5px solid rgba(234, 88, 12, 0.8)',
+        border: '1.5px solid rgba(194, 132, 71, 0.8)',
         borderRadius: '18px',
-        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75), 0 0 30px rgba(234, 88, 12, 0.35)',
+        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.75), 0 0 30px rgba(194, 132, 71, 0.35)',
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'var(--font-family)',
@@ -263,16 +263,16 @@ export default function FontTester({
                     padding: '9px 12px',
                     borderRadius: '10px',
                     background: isSelected
-                      ? 'rgba(234, 88, 12, 0.35)'
+                      ? 'rgba(194, 132, 71, 0.45)'
                       : isLogoMatch
-                        ? 'rgba(234, 88, 12, 0.08)'
+                        ? 'rgba(194, 132, 71, 0.12)'
                         : 'rgba(255, 255, 255, 0.04)',
                     border: isSelected
                       ? '1.5px solid var(--color-primary)'
                       : isLogoMatch
-                        ? '1px solid rgba(234, 88, 12, 0.3)'
+                        ? '1px solid rgba(194, 132, 71, 0.35)'
                         : '1px solid rgba(255, 255, 255, 0.08)',
-                    color: isSelected ? '#fb923c' : '#ffffff',
+                    color: isSelected ? '#fcd34d' : '#ffffff',
                     cursor: 'pointer',
                     display: 'flex',
                     alignItems: 'center',
@@ -283,14 +283,14 @@ export default function FontTester({
                   onMouseEnter={(e) => {
                     if (!isSelected) {
                       e.currentTarget.style.background = isLogoMatch
-                        ? 'rgba(234, 88, 12, 0.15)'
+                        ? 'rgba(194, 132, 71, 0.2)'
                         : 'rgba(255, 255, 255, 0.08)';
                     }
                   }}
                   onMouseLeave={(e) => {
                     if (!isSelected) {
                       e.currentTarget.style.background = isLogoMatch
-                        ? 'rgba(234, 88, 12, 0.08)'
+                        ? 'rgba(194, 132, 71, 0.12)'
                         : 'rgba(255, 255, 255, 0.04)';
                     }
                   }}

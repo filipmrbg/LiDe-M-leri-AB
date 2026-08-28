@@ -14,8 +14,8 @@ const container: React.CSSProperties = {
 
 export default function ServicesOverview() {
   usePageTitle(
-    'Våra Tjänster | Dannes Bygg & Entreprenad AB Mariestad',
-    'Utforska våra tjänster: Snickeri, renovering, tillbyggnad, altaner och totalentreprenad med 3D-ritningar i Mariestad och Skaraborg.'
+    'Våra Tjänster | LiDe Måleri AB Dalarna',
+    'Utforska våra måleritjänster: Invändigt måleri, utvändigt måleri & fasad, tapetsering och helhetsentreprenad i Dalarna med omnejd.'
   );
 
   const { hash } = useLocation();
@@ -23,7 +23,6 @@ export default function ServicesOverview() {
   useEffect(() => {
     if (hash) {
       let id = hash.replace('#', '');
-      if (id === 'ombyggnation') id = 'tillbyggnad';
       const element = document.getElementById(id);
       if (element) {
         setTimeout(() => {
@@ -53,7 +52,7 @@ export default function ServicesOverview() {
       {/* ── HERO HEADER ──────────── */}
       <section style={{
         position: 'relative',
-        backgroundImage: 'url("https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3G5LlmMYORSdAk8SxzXrK2S0Is5%2Fhf_20260821_184821_7f998fbb-7324-4488-8afb-075158c654a2.png&w=1920&q=85")',
+        backgroundImage: 'url("https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3G5LlmMYORSdAk8SxzXrK2S0Is5%2Fhf_20260828_123320_27bb9562-c437-4b08-8154-0689937f7340.png&w=1920&q=85")',
         backgroundSize: 'cover',
         backgroundPosition: 'center 45%',
         paddingTop: '140px',
@@ -83,7 +82,7 @@ export default function ServicesOverview() {
               margin: '0 auto',
               lineHeight: 1.65,
             }}>
-              Dannes Bygg & Entreprenad AB erbjuder gedigna hantverkstjänster, snickeri och 3D-ritningar med inredare i Mariestad och Skaraborg.
+              LiDe Måleri AB erbjuder professionella måleritjänster, tapetsering och fasadunderhåll i Dalarna med omnejd.
             </p>
           </ScrollReveal>
         </div>
@@ -265,7 +264,7 @@ export default function ServicesOverview() {
                           padding: '14px 28px',
                           borderRadius: 'var(--border-radius-pill)',
                           textDecoration: 'none',
-                          boxShadow: '0 4px 14px rgba(234, 88, 12, 0.35)',
+                          boxShadow: '0 4px 14px rgba(194, 132, 71, 0.35)',
                           transition: 'all 0.25s ease',
                         }}
                         onMouseEnter={(e) => {

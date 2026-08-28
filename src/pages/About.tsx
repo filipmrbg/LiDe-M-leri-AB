@@ -12,29 +12,29 @@ const container: React.CSSProperties = {
 
 const teamMembers = [
   {
-    role: 'Ägare & Grundare / Finsnickare',
-    name: 'Daniel Larsson',
-    initials: 'D',
-    description: 'Driver Dannes Bygg & Entreprenad AB med passion för gediget snickeri, noggranna renoveringar och kundanpassade 3D-lösningar.',
+    role: 'Målarmästare & Projektledare',
+    name: 'LiDe Måleri',
+    initials: 'L',
+    description: 'Driver projekten med stor passion för professionellt måleri, kvalitetsfärger och personlig kundservice.',
   },
   {
-    role: 'Yrkeshantverkare & Snickare',
-    name: 'Jonas K.',
-    initials: 'J',
-    description: 'Mångårig erfarenhet inom stomresning, köksmontering, altanbyggnationer och interiöra snickerier.',
+    role: 'Målare & Tapetserare',
+    name: 'Andreas N.',
+    initials: 'A',
+    description: 'Mångårig erfarenhet inom invändig målning, bredspackling, mönstertapetsering och fönsterrenovering.',
   },
   {
-    role: 'Yrkeshantverkare & Plattsättare / Montör',
-    name: 'Marcus E.',
-    initials: 'M',
-    description: 'Specialist på våtrum, badrumsrenoveringar, golvläggning och teknisk montering med högsta finish.',
+    role: 'Målare & Fasadspecialist',
+    name: 'Fredrik S.',
+    initials: 'F',
+    description: 'Specialist på utvändigt måleri, fasadbehandlingar, trävård och sprutmålning med perfekt täckning.',
   },
 ];
 
 export default function About() {
   usePageTitle(
-    'Om Dannes Bygg & Entreprenad AB | Snickeri & Renovering i Mariestad',
-    'Läs om Dannes Bygg & Entreprenad AB. Daniel Larsson utför allt inom snickeri, renovering, tillbyggnad, totalentreprenad och 3D-ritningar med inredare i Mariestad och Skaraborg.'
+    'Om LiDe Måleri AB | Måleri & Tapetsering i Dalarna',
+    'Läs om LiDe Måleri AB. Vi utför allt inom invändigt och utvändigt måleri, tapetsering, spackling och fasadrenovering i Dalarna med omnejd.'
   );
   return (
     <main style={{ fontFamily: 'var(--font-family)' }}>
@@ -42,7 +42,7 @@ export default function About() {
       {/* ── SECTION A: HERO HEADER ────────────────────────────── */}
       <section style={{
         position: 'relative',
-        backgroundImage: 'url(https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260821_183454_7eefa775-dd9b-4589-a201-64ab1b467991.png)',
+        backgroundImage: 'url("https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_3G5LlmMYORSdAk8SxzXrK2S0Is5%2Fhf_20260828_123821_ab6a265b-5fd9-4a34-b213-ad7f9c40fe66.png&w=1920&q=85")',
         backgroundSize: 'cover',
         backgroundPosition: 'center 40%',
         paddingTop: '150px',
@@ -61,12 +61,12 @@ export default function About() {
                 lineHeight: 1.15,
                 letterSpacing: '-0.02em',
               }}>
-                Om Dannes Bygg & Entreprenad AB
+                Om LiDe Måleri AB
               </h1>
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={150}>
               <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: '0 auto', maxWidth: '640px', lineHeight: 1.6 }}>
-                Utför allt inom snickeri & renoveringsprojekt – från idé och 3D-ritningar med inredare till färdigt mästerverk i Mariestad och Skaraborg.
+                Utför allt inom invändigt och utvändigt måleri, tapetsering och renovering med yrkesstolthet i Dalarna med omnejd.
               </p>
             </ScrollReveal>
           </div>
@@ -92,8 +92,8 @@ export default function About() {
                 justifyContent: 'center',
               }}>
                 <img
-                  src={images.about.hero.url || images.logoDark?.url || '/logo-dark.png'}
-                  alt="Dannes Bygg & Entreprenad AB"
+                  src={images.about.hero.url || '/about-us.jpg'}
+                  alt="LiDe Måleri AB"
                   loading="eager"
                   decoding="async"
                   style={{
@@ -122,7 +122,7 @@ export default function About() {
                   letterSpacing: '-0.03em',
                   margin: '0 0 20px 0',
                 }}>
-                  Professionellt hantverk med passion, precision och 3D-projektering
+                  Professionellt måleri med passion, precision och yrkesstolthet
                 </h2>
               </ScrollReveal>
               <ScrollReveal animation="fade-up" delay={100}>
@@ -134,11 +134,11 @@ export default function About() {
                     margin: '0 0 20px 0',
                     fontWeight: 500,
                   }}>
-                    Dannes Bygg & Entreprenad AB drivs av Daniel Larsson och erbjuder ett komplett utbud av tjänster inom snickeri, renovering, tillbyggnad och totalentreprenad. Med bas i Mariestad verkar vi över hela Skaraborg för både privatpersoner och företag.
+                    LiDe Måleri AB erbjuder ett komplett utbud av tjänster inom invändigt och utvändigt måleri, tapetsering, spackling och fasadrenovering. Med bas i Dalarna verkar vi i Falun, Borlänge, Leksand, Rättvik, Mora och omnejd för både privatpersoner, bostadsrättsföreningar och företag.
                   </p>
                   
                   <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--color-text-dark)', margin: '28px 0 12px 0' }}>
-                    Se ditt resultat innan bygget startar – 3D-ritningar med inredare
+                    Hemligheten bakom ett perfekt resultat – noggrant underarbete
                   </h3>
                   <p style={{
                     color: 'var(--color-gray-600)',
@@ -146,7 +146,7 @@ export default function About() {
                     lineHeight: 1.8,
                     margin: '0 0 16px 0',
                   }}>
-                    Det som skiljer oss från traditionella byggfirmor är vårt nära samarbete med professionella inredare och fotorealistisk 3D-visualisering. Innan vi sätter igång ritar vi upp hela köket, badrummet eller utbyggnaden i detalj – så att du i lugn och ro kan justera materialval, belysning och funktioner.
+                    Ett vackert och hållbart måleriarbete handlar till största delen om vad som görs innan färgen stryks på. Vi lägger stor omsorg vid spackling, slipning, grundmålning och noggrann maskering så att slutresultatet blir jämnt och knivskarpt.
                   </p>
                   <p style={{
                     color: 'var(--color-gray-600)',
@@ -154,12 +154,12 @@ export default function About() {
                     lineHeight: 1.8,
                     margin: '0 0 24px 0',
                   }}>
-                    När du anlitar Dannes Bygg & Entreprenad AB får du en trygg kontaktperson genom hela resan. Vi sätter stor ära i att hålla utlovade tider, lämna snyggt och städat efter oss samt leverera resultat som håller i generationer.
+                    När du anlitar LiDe Måleri AB får du en trygg kontaktperson genom hela projektet. Vi sätter stor ära i att hålla utlovade tider, täcka och lämna snyggt och städat efter oss samt leverera resultat som håller i många år framöver.
                   </p>
 
                   {/* Founder Quote Card */}
                   <div style={{
-                    background: 'rgba(234, 88, 12, 0.06)',
+                    background: 'rgba(194, 132, 71, 0.08)',
                     borderLeft: '4px solid var(--color-primary)',
                     padding: '24px 28px',
                     borderRadius: '0 16px 16px 0',
@@ -173,7 +173,7 @@ export default function About() {
                       lineHeight: 1.7,
                       margin: '0 0 10px 0',
                     }}>
-                      "Vi utför allt inom snickeri & renoveringsprojekt med största yrkesstolthet. Med personlig service, fasta priser och 3D-ritningar ser vi till att dina visioner blir verklighet precis som du önskat."
+                      "Vi utför alla måleriuppdrag med största yrkesstolthet. Med personlig service, noggrant underarbete och högkvalitativa färgval ser vi till att dina ytor håller och ser fantastiska ut i många år framöver."
                     </p>
                     <span style={{
                       color: 'var(--color-primary)',
@@ -181,12 +181,12 @@ export default function About() {
                       fontSize: '0.9rem',
                       display: 'block',
                     }}>
-                      Daniel Larsson, Grundare & Ägare för Dannes Bygg & Entreprenad AB
+                      LiDe Måleri AB
                     </span>
                   </div>
 
                   <Button variant="primary" size="lg" href="/kontakt">
-                    Kontakta Daniel för rådgivning
+                    Kontakta oss för rådgivning
                   </Button>
                 </div>
               </ScrollReveal>
@@ -219,7 +219,7 @@ export default function About() {
                 maxWidth: '580px',
                 margin: '0 auto',
               }}>
-                Erfarna och engagerade hantverkare som levererar kvalitet och noggrannhet i Mariestad och Skaraborg.
+                Erfarna och engagerade målare som levererar kvalitet och noggrannhet i Dalarna med omnejd.
               </p>
             </ScrollReveal>
           </div>
@@ -246,7 +246,7 @@ export default function About() {
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-6px)';
                   e.currentTarget.style.boxShadow = '0 16px 36px rgba(0, 0, 0, 0.09)';
-                  e.currentTarget.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+                  e.currentTarget.style.borderColor = 'rgba(194, 132, 71, 0.3)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
@@ -254,23 +254,33 @@ export default function About() {
                   e.currentTarget.style.borderColor = '#e2e8f0';
                 }}
                 >
-                  <div style={{ padding: '36px 28px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{
+                    padding: '36px 28px 28px 28px',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    flex: 1,
+                  }}>
+                    {/* Circle Avatar with Initials */}
                     <div style={{
-                      width: '68px',
-                      height: '68px',
+                      width: '84px',
+                      height: '84px',
                       borderRadius: '50%',
-                      background: i === 0 ? 'rgba(234, 88, 12, 0.12)' : 'rgba(15, 23, 42, 0.08)',
-                      color: i === 0 ? 'var(--color-primary)' : 'var(--color-text-dark)',
+                      background: 'linear-gradient(135deg, #1e293b 0%, #0f172a 100%)',
+                      border: '3px solid var(--color-primary)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '1.7rem',
+                      color: '#ffffff',
+                      fontSize: '1.8rem',
                       fontWeight: 800,
-                      margin: '0 auto 18px auto',
-                      border: i === 0 ? '2px solid rgba(234, 88, 12, 0.3)' : '2px solid rgba(15, 23, 42, 0.1)',
+                      letterSpacing: '-0.02em',
+                      marginBottom: '20px',
+                      boxShadow: '0 8px 20px rgba(194, 132, 71, 0.25)',
                     }}>
                       {member.initials}
                     </div>
+
                     <h3 style={{
                       color: 'var(--color-text-dark)',
                       fontWeight: 800,
@@ -279,19 +289,23 @@ export default function About() {
                     }}>
                       {member.name}
                     </h3>
-                    <p style={{
+
+                    <span style={{
                       color: 'var(--color-primary)',
-                      fontSize: '0.9rem',
                       fontWeight: 700,
-                      margin: '0 0 14px 0',
-                      lineHeight: 1.4,
+                      fontSize: '0.86rem',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.04em',
+                      marginBottom: '16px',
+                      display: 'block',
                     }}>
                       {member.role}
-                    </p>
+                    </span>
+
                     <p style={{
                       color: 'var(--color-gray-600)',
-                      fontSize: '0.88rem',
-                      lineHeight: 1.6,
+                      fontSize: '0.92rem',
+                      lineHeight: 1.65,
                       margin: 0,
                     }}>
                       {member.description}
@@ -304,27 +318,21 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── SECTION E: CTA BANNER ─────────────────────────────── */}
+      {/* ── SECTION E: CTA ────────────────────────────────────────── */}
       <CTABanner />
 
       <style>{`
         @media (max-width: 768px) {
-          .two-col { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .team-grid { grid-template-columns: 1fr !important; }
           .about-content-grid {
             grid-template-columns: 1fr !important;
             gap: 32px !important;
           }
-          .about-content-grid > *:first-child {
-            display: flex;
-            justifyContent: center;
+          .about-content-grid img {
+            max-width: 220px !important;
+            margin: 0 auto;
           }
-        }
-        @media (max-width: 1024px) {
-          .team-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
       `}</style>
     </main>
   );
 }
-

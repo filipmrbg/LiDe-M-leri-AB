@@ -4,7 +4,7 @@ import {
   Star,
   Phone,
   MapPin,
-  Hammer,
+  Paintbrush,
   CheckCircle2,
   ArrowRight,
 } from 'lucide-react';
@@ -33,27 +33,27 @@ const homeFaqItems = [
     answer: 'Nej, vi erbjuder alltid kostnadsfria offerter och rådgivning helt utan förbindelser.',
   },
   {
-    question: 'Hur fungerar ROT avdraget?',
-    answer: 'Som privatperson har du rätt till ROT avdrag som reducerar arbetskostnaden med 30 %. Vi sköter all administration direkt med Skatteverket och drar av beloppet på din faktura.',
+    question: 'Hur fungerar ROT avdraget vid måleri?',
+    answer: 'Som privatperson har du rätt till ROT avdrag som reducerar arbetskostnaden med 30 %. Vi sköter all administration direkt med Skatteverket och drar av beloppet direkt på din faktura.',
   },
   {
-    question: 'Lämnar ni garanti på utfört arbete?',
-    answer: 'Ja, vi arbetar alltid enligt gällande branschregler och lämnar fullständiga garantier på både utfört arbete och material.',
+    question: 'Lämnar ni garanti på utfört måleriarbete?',
+    answer: 'Ja, vi arbetar alltid enligt gällande branschstandard och lämnar fullständiga garantier på både utfört arbete och material.',
   },
   {
-    question: 'Hjälper ni till med både små och stora projekt?',
-    answer: 'Ja, vi åtar oss allt från mindre renoveringar och servicearbeten till mer omfattande nybyggnationer och tillbyggnader.',
+    question: 'Hjälper ni till med både små och stora måleriprojekt?',
+    answer: 'Ja, vi åtar oss allt från målning av ett enskilt rum eller tapetsering till fullständig fasadmålning och större målerientreprenader.',
   },
   {
     question: 'Hur går processen till från start till mål?',
-    answer: 'Vi inleder med en dialog kring dina önskemål och förutsättningar, tar fram en tydlig offert och sätter en överenskommen tidsplan innan arbetet påbörjas.',
+    answer: 'Vi inleder med en dialog kring dina färgval och önskemål, tar fram en tydlig offert och sätter en överenskommen tidsplan innan arbetet påbörjas.',
   },
 ];
 
 export default function Home() {
   usePageTitle(
-    'Dannes Bygg & Entreprenad AB | Snickeri & Renovering i Mariestad & Skaraborg',
-    'Dannes Bygg & Entreprenad AB utför allt inom snickeri, renovering, tillbyggnad, totalentreprenad och 3D-ritningar med inredare i Mariestad och Skaraborg. Kontakta Daniel för fri offert!'
+    'LiDe Måleri AB | Måleriarbeten i Dalarna med omnejd',
+    'LiDe Måleri AB utför allt inom invändigt och utvändigt måleri, tapetsering, spackling och fasadmålning i Dalarna med omnejd. Kontakta oss för fri offert!'
   );
 
   const heroBgRef = useRef<HTMLDivElement>(null);
@@ -89,7 +89,7 @@ export default function Home() {
       const promise = video.play();
       if (promise !== undefined) {
         promise.catch(() => {
-          // Autoplay blocked (e.g. iOS Low Power Mode) — will unlock on user interaction
+          // Autoplay blocked
         });
       }
     };
@@ -119,8 +119,6 @@ export default function Home() {
     };
   }, []);
 
-
-
   return (
     <main style={{ fontFamily: 'var(--font-family)' }}>
 
@@ -147,7 +145,7 @@ export default function Home() {
         >
           <video
             ref={heroVideoRef}
-            src="https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260821_174947_7e05591f-10fc-4e7f-88c6-98aa7c0b9577.mp4"
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260828_104600_2d4a8a55-20f8-4f3b-a59f-2e5b31428726.mp4"
             preload="auto"
             autoPlay
             loop
@@ -158,16 +156,17 @@ export default function Home() {
               height: '100%',
               objectFit: 'cover',
               objectPosition: 'center',
+              filter: 'brightness(1.06) contrast(1.03)',
             }}
           >
-            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260821_174947_7e05591f-10fc-4e7f-88c6-98aa7c0b9577.mp4" type="video/mp4" />
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260828_104600_2d4a8a55-20f8-4f3b-a59f-2e5b31428726.mp4" type="video/mp4" />
           </video>
         </div>
-        {/* Dark overlay */}
+        {/* Lighter, softer overlay letting the video shine through */}
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'rgba(15, 12, 8, 0.65)',
+          background: 'linear-gradient(90deg, rgba(15, 23, 42, 0.52) 0%, rgba(15, 23, 42, 0.32) 55%, rgba(15, 23, 42, 0.12) 100%)',
           zIndex: 1,
         }} />
 
@@ -194,24 +193,25 @@ export default function Home() {
                 display: 'block',
                 marginBottom: '14px',
               }}>
-                MARIESTAD • SKARABORG • VÄSTRA GÖTALAND
+                DALARNA MED OMNEJD
               </span>
             </ScrollReveal>
 
-            {/* Huge Bold Headline (H1) using Outfit font */}
+            {/* Logo-Matched Brush Headline (H1) */}
             <ScrollReveal animation="fade-up" delay={100} duration={0.8}>
               <h1 style={{
-                fontFamily: "'Outfit', sans-serif",
+                fontFamily: "'Permanent Marker', 'Sedgwick Ave', 'Caveat Brush', cursive, sans-serif",
                 color: '#ffffff',
-                fontSize: 'clamp(2.8rem, 6.5vw, 5.2rem)',
-                fontWeight: 900,
-                lineHeight: 0.98,
-                textTransform: 'uppercase',
-                letterSpacing: '-0.01em',
+                fontSize: 'clamp(2.4rem, 5.5vw, 4.4rem)',
+                lineHeight: 1.12,
+                letterSpacing: '0.03em',
                 margin: '0 0 24px 0',
-                textShadow: '0 4px 18px rgba(0, 0, 0, 0.75)',
+                textShadow: '0 4px 18px rgba(0, 0, 0, 0.85), 0 2px 6px rgba(0, 0, 0, 0.9)',
+                fontWeight: 400,
+                transform: 'rotate(-1deg)',
+                transformOrigin: 'left center',
               }}>
-                DANNES BYGG &<br />ENTREPRENAD
+                LiDe Måleri AB
               </h1>
             </ScrollReveal>
 
@@ -227,7 +227,7 @@ export default function Home() {
                 textShadow: '0 2px 12px rgba(0, 0, 0, 0.85)',
                 fontWeight: 400,
               }}>
-                Utför allt inom snickeri & renoveringsprojekt i Mariestad och Skaraborg. Från 3D-ritningar tillsammans med inredare till nyckelfärdiga lösningar med högsta precision och yrkesstolthet.
+                Professionella måleriarbeten och tapetsering i Dalarna med omnejd. Från noggrant underarbete och invändig målning till hållbar fasadmålning med högsta precision och yrkesstolthet.
               </p>
             </ScrollReveal>
 
@@ -246,7 +246,7 @@ export default function Home() {
                 <Button
                   variant="outline"
                   size="lg"
-                  href="tel:0768267271"
+                  href="tel:0703090249"
                   onClick={(e) => {
                     if (window.innerWidth > 768) {
                       e.preventDefault();
@@ -256,7 +256,7 @@ export default function Home() {
                 >
                   <span style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
                     <Phone size={18} />
-                    Ring 076-826 72 71
+                    Ring 070-309 02 49
                   </span>
                 </Button>
               </div>
@@ -311,7 +311,7 @@ export default function Home() {
                   margin: 0,
                   lineHeight: 1.18,
                 }}>
-                  Byggtjänster med fokus på kvalitet
+                  Måleritjänster med fokus på kvalitet
                 </h2>
               </ScrollReveal>
             </div>
@@ -324,7 +324,7 @@ export default function Home() {
                   lineHeight: 1.65,
                   margin: '0 0 12px 0',
                 }}>
-                  Från snickeri och renovering till tillbyggnad, altaner och totalentreprenad i Mariestad och Skaraborg.
+                  Från invändig målning och tapetsering till fasadmålning och totalentreprenad i Falun, Borlänge och hela Dalarna.
                 </p>
                 <Link
                   to="/tjanster"
@@ -371,7 +371,7 @@ export default function Home() {
                     const card = e.currentTarget;
                     card.style.transform = 'translateY(-6px)';
                     card.style.boxShadow = '0 20px 40px rgba(15, 23, 42, 0.12)';
-                    card.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+                    card.style.borderColor = 'rgba(194, 132, 71, 0.3)';
                     const img = card.querySelector('.card-photo') as HTMLElement;
                     if (img) img.style.transform = 'scale(1.05)';
                   }}
@@ -422,7 +422,7 @@ export default function Home() {
                   }}>
                     {/* Architectural Service Icon */}
                     <div style={{ marginBottom: '16px' }}>
-                      <ServiceIcon type={svc.slug} color="#c28447" size={38} />
+                      <ServiceIcon type={svc.slug} color="var(--color-primary)" size={38} />
                     </div>
 
                     <h3 style={{
@@ -475,7 +475,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SECTION 3: DIN LOKALA BYGGFIRMA / OM OSS ─────────────── */}
+      {/* ── SECTION 3: DIN LOKALA MÅLERIFIRMA / OM OSS ─────────────── */}
       <section style={{ background: '#ffffff', padding: 'clamp(60px, 8vw, 100px) 0', borderTop: '1px solid #e2e8f0' }}>
         <div style={container}>
           <div className="two-col" style={{
@@ -500,18 +500,17 @@ export default function Home() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                padding: '16px',
+                padding: '0',
               }}>
                 <img
                   src={images.about.hero.url}
-                  alt="Dannes Bygg & Entreprenad AB"
+                  alt="LiDe Måleri AB"
                   style={{
                     width: '100%',
                     height: '100%',
                     objectFit: 'cover',
-                    borderRadius: '16px',
+                    borderRadius: '24px',
                     display: 'block',
-                    boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
                   }}
                 />
               </div>
@@ -527,7 +526,7 @@ export default function Home() {
                   lineHeight: 1.2,
                   margin: '0 0 14px 0',
                 }}>
-                  Din lokala snickare & byggpartner i Mariestad & Skaraborg
+                  Din lokala målerifirma i Dalarna med omnejd
                 </h2>
               </ScrollReveal>
               <ScrollReveal animation="scale-x-left" delay={200} duration={0.6}>
@@ -540,16 +539,16 @@ export default function Home() {
                   lineHeight: 1.75,
                   margin: '0 0 32px 0',
                 }}>
-                  Bakom Dannes Bygg & Entreprenad AB står Daniel Larsson. Med bas i Mariestad utför vi allt inom snickeri, renovering, tillbyggnad, altaner och totalentreprenad i hela Skaraborg. Vi kombinerar traditionellt snickarkunnande med moderna 3D-ritningar tillsammans med inredare – så att du får ett perfekt planerat projekt från start till mål.
+                  LiDe Måleri AB har sin bas i Dalarna och utför allt inom invändigt och utvändigt måleri, tapetsering, spackling och fasadrenovering. Vi kombinerar gediget hantverkskunnande med moderna kvalitetsfärger och noggrannhet i varje penseldrag – så att du får ett perfekt och hållbart resultat från start till mål.
                 </p>
               </ScrollReveal>
               <ScrollReveal animation="fade-right" duration={0.8} delay={200}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                   {[
-                    'En och samma kontaktperson – Daniel Larsson från start till mål',
+                    'En och samma kontaktperson genom hela projektet',
                     'Tydliga offerter, fasta priser och direkt ROT-avdrag (30%)',
-                    '3D-ritningar med inredare för perfekt visualisering före start',
-                    'Lokal närvaro och snabb service i Mariestad & Skaraborg',
+                    'Noggrant underarbete och kvalitetsfärg för maximal livslängd',
+                    'Lokal närvaro och personlig service i hela Dalarna',
                   ].map((item, i) => (
                     <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <CheckCircle2 size={24} color="var(--color-primary)" style={{ flexShrink: 0 }} />
@@ -612,7 +611,7 @@ export default function Home() {
                   margin: 0,
                   lineHeight: 1.2,
                 }}>
-                  Så går det till från idé till verklighet
+                  Så går det till från idé till färdigt resultat
                 </h2>
               </ScrollReveal>
             </div>
@@ -625,7 +624,7 @@ export default function Home() {
                   lineHeight: 1.65,
                   margin: 0,
                 }}>
-                  Från första kontakt till nyckelfärdigt resultat i tre enkla steg med full transparens och trygghet.
+                  Från första kontakt till färdigmålat resultat i tre enkla steg med full transparens och trygghet.
                 </p>
               </ScrollReveal>
             </div>
@@ -642,17 +641,17 @@ export default function Home() {
               {
                 icon: Phone,
                 title: '1. Kontakta oss',
-                desc: 'Berätta om dina planer och idéer. Vi ger kostnadsfri rådgivning och bollar möjligheter för ditt projekt.',
+                desc: 'Berätta om dina måleriplaner och idéer. Vi ger kostnadsfri rådgivning och bollar färg- och materialval.',
               },
               {
                 icon: MapPin,
                 title: '2. Platsbesök & offert',
-                desc: 'Vi går igenom förutsättningarna på plats och tar fram en tydlig offert med fast pris och tidsplan.',
+                desc: 'Vi går igenom underlag och ytor på plats och tar fram en tydlig offert med fast pris och tidsplan.',
               },
               {
-                icon: Hammer,
-                title: '3. Vi bygger',
-                desc: 'Vi utför arbetet enligt överenskommelse med hög kvalitet, full insyn och trygga garantier.',
+                icon: Paintbrush,
+                title: '3. Vi målar',
+                desc: 'Vi utför måleriarbetet enligt överenskommelse med hög kvalitet, täcker rent och lämnar ett perfekt resultat.',
               },
             ].map(({ icon: Icon, title, desc }, i) => (
               <div key={i} style={{ display: 'contents' }}>
@@ -668,7 +667,7 @@ export default function Home() {
                       justifyContent: 'center',
                       marginBottom: '20px',
                     }}>
-                      <Icon size={28} color="#1a1f2e" />
+                      <Icon size={28} color="#ffffff" />
                     </div>
                     <h3 style={{
                       color: 'var(--color-text-dark)',
@@ -727,7 +726,7 @@ export default function Home() {
               fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
               margin: '0 0 12px 0',
             }}>
-              Nyfiken på vad ditt projekt kostar?
+              Nyfiken på vad ditt måleriprojekt kostar?
             </h2>
             <p style={{
               color: 'rgba(255,255,255,0.7)',
@@ -735,7 +734,7 @@ export default function Home() {
               margin: '0 0 32px 0',
               lineHeight: 1.7,
             }}>
-              Vi skickar en kostnadsfri offert inom 24 timmar.
+              Vi återkopplar med en kostnadsfri offert inom 24 timmar.
             </p>
             <Button variant="primary" size="lg" href="/offert">
               Begär offert
@@ -809,7 +808,7 @@ export default function Home() {
                       <Star key={i} size={15} fill="#FBBC05" color="#FBBC05" />
                     ))}
                   </div>
-                  <span style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem' }}>(Omdömen i Skaraborg)</span>
+                  <span style={{ color: 'var(--color-gray-600)', fontSize: '0.85rem' }}>(Omdömen i Dalarna)</span>
                 </div>
               </ScrollReveal>
             </div>
@@ -818,30 +817,30 @@ export default function Home() {
           <div className="reviews-grid">
             {[
               {
-                name: 'Alexander Lindberg',
-                location: 'Mariestad',
-                text: 'Vi anlitade Dannes Bygg & Entreprenad AB för en totalrenovering av kök och vardagsrum. Otroligt proffsigt bemötande från Daniel och fantastiskt smidigt med 3D-ritningarna innan start så vi visste exakt hur det skulle bli. Perfekt finish och snabbt utfört!',
+                name: 'Johan E.',
+                location: 'Falun',
+                text: 'Vi anlitade LiDe Måleri AB för ommålning av hela nedervåningen inklusive spackling och tapetsering i vardagsrummet. Otroligt proffsigt bemötande, raka besked och fantastiskt resultat med knivskarpa linjer. Rekommenderas varmt!',
                 stars: 5,
                 date: 'för 2 veckor sedan',
-                authorSub: 'Lokal guide • 18 omdömen',
+                authorSub: 'Lokal guide • 14 omdömen',
                 avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=120&h=120'
               },
               {
-                name: 'Sofia & Henrik Berg',
-                location: 'Skövde',
-                text: 'Daniel hjälpte oss med en tillbyggnad och ett stort trädäck. Från första skissen till färdigt bygge flöt allt på helt utan problem. Mycket noggrann hantverkare som höll budgeten exakt.',
+                name: 'Karin M.',
+                location: 'Borlänge',
+                text: 'LiDe Måleri AB hjälpte oss med utvändig fasadmålning av villan och garaget. Från grundlig tvätt och skrapning till två strykningar flöt allt på helt enligt tidsplanen. Mycket noggranna målare som lämnade tomten skinande ren.',
                 stars: 5,
                 date: 'för en månad sedan',
-                authorSub: '9 omdömen',
+                authorSub: '8 omdömen',
                 avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=120&h=120'
               },
               {
-                name: 'Mikael Eklund',
-                location: 'Töreboda',
-                text: 'Toppklassigt snickeriarbete och totalentreprenad vid vår renovering. Daniel samordnade allt med precision och resultatet överträffade alla förväntningar. Ett hantverksföretag man verkligen kan lita på!',
+                name: 'Markus L.',
+                location: 'Leksand',
+                text: 'Toppklassigt måleriarbete vid vår totalrenovering. LiDe Måleri AB levererade perfekt finish på både väggar, tak och snickerier. Tryggt, prisvärt och med full koll på ROT-avdraget!',
                 stars: 5,
                 date: 'för 2 månader sedan',
-                authorSub: 'Lokal guide • 24 omdömen',
+                authorSub: 'Lokal guide • 19 omdömen',
                 avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=120&h=120'
               },
             ].map((review, i) => {
@@ -867,7 +866,7 @@ export default function Home() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'radial-gradient(ellipse at 85% 25%, rgba(234, 88, 12, 0.08) 0%, transparent 60%)',
+          background: 'radial-gradient(ellipse at 85% 25%, rgba(194, 132, 71, 0.12) 0%, transparent 60%)',
           pointerEvents: 'none',
         }} />
         <div style={{ ...container, position: 'relative', zIndex: 1 }}>
@@ -888,85 +887,8 @@ export default function Home() {
       {/* ── SECTION 10: CTA BANNER ───────────────────────────────── */}
       <CTABanner />
 
-      {/* ── TWEAKED SPACED STYLES ───────────────────────────────── */}
+      {/* ── STYLES ───────────────────────────────── */}
       <style>{`
-        .spaced-screenshot-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: clamp(20px, 3vw, 32px);
-        }
-        .spaced-tile {
-          position: relative;
-          display: block;
-          text-decoration: none;
-          aspect-ratio: 16/10;
-          border-radius: 16px;
-          overflow: hidden;
-          background: #000;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-          border: 1px solid rgba(0, 0, 0, 0.06);
-          transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
-        }
-        .spaced-tile-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .spaced-tile-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.88) 100%);
-          transition: background 0.4s ease;
-        }
-        .spaced-tile:hover {
-          transform: translateY(-6px);
-          border-color: rgba(217, 119, 6, 0.45);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.16);
-        }
-        .spaced-tile:hover .spaced-tile-img {
-          transform: scale(1.06);
-        }
-        .spaced-tile:hover .spaced-tile-overlay {
-          background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 20%, rgba(0, 0, 0, 0.92) 100%);
-        }
-        .spaced-tile-content {
-          position: absolute;
-          inset: auto 0 0 0;
-          padding: 24px 24px 22px 24px;
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          z-index: 2;
-        }
-        .spaced-tile-left {
-          display: flex;
-          flex-direction: column;
-        }
-        .spaced-tile-title {
-          color: #ffffff;
-          font-weight: 700;
-          font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-          margin: 0;
-          line-height: 1.2;
-          letter-spacing: -0.01em;
-          text-shadow: 0 2px 8px rgba(0,0,0,0.8);
-        }
-        .spaced-tile-right {
-          flex-shrink: 0;
-          margin-left: 12px;
-        }
-        .spaced-tile-action {
-          color: rgba(255, 255, 255, 0.85);
-          font-size: 0.82rem;
-          font-weight: 600;
-          transition: color 0.3s ease;
-        }
-        .spaced-tile:hover .spaced-tile-action {
-          color: var(--color-primary);
-        }
-
         .steps-grid-wrapper {
           display: flex;
           align-items: flex-start;
@@ -994,11 +916,9 @@ export default function Home() {
           height: 70px;
         }
         @media (max-width: 1024px) {
-          .spaced-screenshot-grid { grid-template-columns: repeat(2, 1fr) !important; }
           .reviews-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
         @media (max-width: 768px) {
-          .spaced-screenshot-grid { grid-template-columns: 1fr !important; }
           .two-col { grid-template-columns: 1fr !important; gap: 32px !important; }
           .reviews-grid { grid-template-columns: 1fr !important; gap: 20px !important; }
           .steps-grid-wrapper { flex-direction: column !important; align-items: center !important; gap: 24px !important; }

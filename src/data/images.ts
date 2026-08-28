@@ -2,7 +2,6 @@
  * CENTRALIZED IMAGE CONFIGURATION
  *
  * All images used across the template are defined here.
- * To customize for a new company: replace the URLs below.
  */
 
 export interface ImageSlot {
@@ -17,11 +16,6 @@ export interface SiteImages {
     background: ImageSlot;
   };
   services: {
-    nybyggnation?: ImageSlot;
-    smahusbyggnation?: ImageSlot;
-    renovering?: ImageSlot;
-    ombyggnation?: ImageSlot;
-    totalentreprenad?: ImageSlot;
     [key: string]: ImageSlot | undefined;
   };
   gallery: ImageSlot[];
@@ -40,220 +34,153 @@ export interface SiteImages {
     title: string;
     category: string;
   }[];
-  servicePages: {
-    markarbete: {
-      hero: ImageSlot;
-      section1: ImageSlot;
-      section2: ImageSlot;
-    };
-    dranering: {
-      hero: ImageSlot;
-      section1: ImageSlot;
-      section2: ImageSlot;
-    };
-    betong: {
-      hero: ImageSlot;
-      section1: ImageSlot;
-      section2: ImageSlot;
-    };
-  };
 }
 
 const images: SiteImages = {
   logo: {
     url: '/logo.png',
-    alt: 'Dannes Bygg & Entreprenad AB',
+    alt: 'LiDe Måleri AB',
   },
   logoDark: {
     url: '/logo-dark.png',
-    alt: 'Dannes Bygg & Entreprenad AB',
+    alt: 'LiDe Måleri AB',
   },
 
   hero: {
     background: {
       url: '/hero-main.webp',
-      alt: 'Dannes Bygg & Entreprenad AB hantverk och snickeri Mariestad Skaraborg',
+      alt: 'LiDe Måleri AB måleriarbeten i Dalarna med omnejd',
     },
   },
 
   services: {
-    nybyggnation: {
-      url: '/service-smahusbyggnation.webp',
-      alt: 'Nybyggnation, garage och attefallshus i Mariestad och Skaraborg',
+    'invandigt-maleri': {
+      url: '/gallery/gallery-2.jpg',
+      alt: 'Invändigt måleri och tapetsering i Dalarna',
     },
-    smahusbyggnation: {
-      url: '/service-smahusbyggnation.webp',
-      alt: 'Småhusbyggnation och attefallshus i Skaraborg',
+    'fasadmalning': {
+      url: '/gallery/gallery-1.jpg',
+      alt: 'Utvändigt måleri och fasadrenovering i Dalarna',
     },
-    renovering: {
-      url: '/service-renovering.webp',
-      alt: 'Totalrenovering, kök och badrum i Mariestad',
+    'tapetsering': {
+      url: '/gallery/gallery-4.jpg',
+      alt: 'Tapetsering, spackling och ytfinish',
     },
-    ombyggnation: {
-      url: '/service-ombyggnation.webp',
-      alt: 'Ombyggnation, tak och tillbyggnad i Skaraborg',
-    },
-    totalentreprenad: {
-      url: '/service-totalentreprenad.webp',
-      alt: 'Totalentreprenad och 3D-ritningar med inredare',
+    'totalentreprenad': {
+      url: '/gallery/gallery-6.jpg',
+      alt: 'Totalentreprenad måleri för villa och fastighet',
     },
   },
 
   gallery: [
     {
       url: '/gallery/gallery-1.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB snickeriarbete och renovering',
+      alt: 'LiDe Måleri AB fasadmålning och utvändigt måleriarbete',
     },
     {
       url: '/gallery/gallery-2.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB hantverk och interiör',
+      alt: 'LiDe Måleri AB invändig målning och väggfinish',
     },
     {
       url: '/gallery/gallery-3.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB kök och renovering',
+      alt: 'LiDe Måleri AB tak och snickerimålning',
     },
     {
       url: '/gallery/gallery-4.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB träaltan och utemiljö',
+      alt: 'LiDe Måleri AB mönstertapetsering och fondvägg',
     },
     {
       url: '/gallery/gallery-5.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB specialsnickeri och detaljer',
+      alt: 'LiDe Måleri AB detaljarbete och snickerifinish',
     },
     {
       url: '/gallery/gallery-6.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB färdigställt byggprojekt',
+      alt: 'LiDe Måleri AB färdigställt måleriprojekt',
     },
   ],
 
   cta: {
     banner: {
       url: '/hero-main.webp',
-      alt: 'Dannes Bygg & Entreprenad AB projekt',
+      alt: 'LiDe Måleri AB måleriprojekt',
     },
     midSection: {
       url: '/hero-main.webp',
-      alt: 'Dannes Bygg arbetsplats Mariestad',
+      alt: 'LiDe Måleri arbetsplats Dalarna',
     },
   },
 
   about: {
     hero: {
       url: '/about-us.jpg',
-      alt: 'Dannes Bygg & Entreprenad AB grundare och verksamhet',
+      alt: 'LiDe Måleri AB verksamhet och måleriarbete i Dalarna',
     },
     teamMember: {
       url: '/logo.png',
-      alt: 'Teammedlem Dannes Bygg',
+      alt: 'Teammedlem LiDe Måleri AB',
     },
   },
 
   whyChooseUs: {
     url: '/why-choose-us.webp',
-    alt: 'Noggrant hantverk i detalj',
+    alt: 'Noggrant måleriarbete i detalj',
   },
 
   ideaToResult: {
     url: '/idea-to-result.webp',
-    alt: 'Från idé och 3D-ritning till färdigt resultat',
+    alt: 'Från planering till perfekt målat resultat',
   },
 
   portfolio: [
     {
       image: {
         url: '/gallery/gallery-1.jpg',
-        alt: 'Snickeri och renovering i Mariestad',
+        alt: 'Fasadmålning villa i Dalarna',
       },
-      title: 'Skräddarsytt Snickeri & Renovering',
-      category: 'Snickeri',
+      title: 'Fasadmålning & Träskydd Villa',
+      category: 'Fasad',
     },
     {
       image: {
         url: '/gallery/gallery-2.jpg',
-        alt: 'Interiördesign och 3D-visualisering',
+        alt: 'Invändigt måleri och rumsförnyelse',
       },
-      title: 'Interiör & 3D-Visualisering',
-      category: '3D-Design',
+      title: 'Invändig Målning & Kulörbyte',
+      category: 'Inomhusmåleri',
     },
     {
       image: {
         url: '/gallery/gallery-3.jpg',
-        alt: 'Kök- och rumsrenovering Skaraborg',
+        alt: 'Tak- och väggmålning Dalarna',
       },
-      title: 'Köks- & Interiörrenovering',
-      category: 'Renovering',
+      title: 'Tak, Väggar & Snickerier',
+      category: 'Måleri',
     },
     {
       image: {
         url: '/gallery/gallery-4.jpg',
-        alt: 'Trädäck och altanbygge Mariestad',
+        alt: 'Mönstertapetsering och spackling',
       },
-      title: 'Trädäck, Altan & Uterum',
-      category: 'Tillbyggnad',
+      title: 'Mönsterpassad Tapetsering',
+      category: 'Tapetsering',
     },
     {
       image: {
         url: '/gallery/gallery-5.jpg',
-        alt: 'Finsnickeri och detaljarbete',
+        alt: 'Snickerimålning och detaljarbete',
       },
-      title: 'Finsnickeri & Platsbyggt',
-      category: 'Snickeri',
+      title: 'Dörr- & Fönstermålning',
+      category: 'Snickerimåleri',
     },
     {
       image: {
         url: '/gallery/gallery-6.jpg',
-        alt: 'Totalentreprenad Mariestad Skaraborg',
+        alt: 'Helhetsentreprenad måleri Dalarna',
       },
-      title: 'Totalentreprenad & Ombyggnad',
-      category: 'Totalentreprenad',
+      title: 'Totalentreprenad Måleri',
+      category: 'Helhetsprojekt',
     },
   ],
-
-  servicePages: {
-    markarbete: {
-      hero: {
-        url: '/service-markarbete.webp',
-        alt: 'Markarbete och schaktning',
-      },
-      section1: {
-        url: '/service-markarbete.webp',
-        alt: 'Förberedelse för tomtplanering',
-      },
-      section2: {
-        url: '/hero-main.webp',
-        alt: 'Arbetsplats Stockholm',
-      },
-    },
-    dranering: {
-      hero: {
-        url: '/service-dranering.webp',
-        alt: 'Dränering av husgrund',
-      },
-      section1: {
-        url: '/service-dranering.webp',
-        alt: 'Fuktskydd och dränering',
-      },
-      section2: {
-        url: '/hero-main.webp',
-        alt: 'Dräneringsarbete',
-      },
-    },
-    betong: {
-      hero: {
-        url: '/service-betong.webp',
-        alt: 'Gjutning av betongplatta',
-      },
-      section1: {
-        url: '/service-betong.webp',
-        alt: 'Stenläggning och armering',
-      },
-      section2: {
-        url: '/hero-main.webp',
-        alt: 'Färdig betonggrund',
-      },
-    },
-  },
 };
 
 export default images;
-

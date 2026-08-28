@@ -11,27 +11,34 @@ const ServicesOverview = lazy(() => import('./pages/ServicesOverview'));
 const Animations = lazy(() => import('./pages/Animations'));
 
 function ScrollToTop() {
-  const { pathname, state } = useLocation();
+  const { pathname, state, hash } = useLocation();
   useEffect(() => {
     document.body.style.overflow = '';
-    const scrollTo = (state as { scrollTo?: string } | null)?.scrollTo;
-    if (scrollTo) {
+    const targetId = (state as { scrollTo?: string } | null)?.scrollTo || (hash ? hash.replace('#', '') : null);
+    if (targetId) {
       const attempt = () => {
-        const el = document.getElementById(scrollTo);
+        const el = document.getElementById(targetId);
         if (el) {
           const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
           window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          return true;
         }
+        return false;
       };
-      const t1 = setTimeout(attempt, 120);
-      const t2 = setTimeout(attempt, 400);
-      return () => {
-        clearTimeout(t1);
-        clearTimeout(t2);
-      };
+      if (!attempt()) {
+        const t1 = setTimeout(attempt, 60);
+        const t2 = setTimeout(attempt, 200);
+        const t3 = setTimeout(attempt, 500);
+        return () => {
+          clearTimeout(t1);
+          clearTimeout(t2);
+          clearTimeout(t3);
+        };
+      }
+      return;
     }
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
-  }, [pathname, state]);
+  }, [pathname, state, hash]);
   return null;
 }
 
@@ -54,7 +61,7 @@ export default function App() {
           <div style={{
             width: '36px',
             height: '36px',
-            border: '3px solid rgba(234, 88, 12, 0.2)',
+            border: '3px solid rgba(194, 132, 71, 0.2)',
             borderTopColor: 'var(--color-primary)',
             borderRadius: '50%',
             animation: 'spin 0.8s linear infinite',

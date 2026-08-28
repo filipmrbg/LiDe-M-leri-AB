@@ -18,15 +18,15 @@ const faqItems = [
   },
   {
     question: 'Hur lång tid tar det att få ett prisförslag?',
-    answer: 'Vi återkopplar vanligtvis inom 24 timmar och lämnar en tydlig, specificerad offert inom 1–3 arbetsdagar efter genomgång eller platsbesök.',
+    answer: 'Vi återkopplar vanligtvis inom 24 timmar och lämnar en tydlig, specificerad offert inom 1–2 arbetsdagar efter genomgång eller platsbesök.',
   },
   {
-    question: 'Vilka områden i Skaraborg är ert huvudsakliga upptagningsområde?',
-    answer: 'Vi har vår bas i Mariestad och utför uppdrag i Mariestad, Skövde, Töreboda, Götene, Lidköping, Tibro, Hova och hela Skaraborgsområdet.',
+    question: 'Vilka områden i Dalarna är ert huvudsakliga upptagningsområde?',
+    answer: 'Vi har vår bas i Dalarna och utför uppdrag i Falun, Borlänge, Leksand, Rättvik, Mora, Gagnef, Smedjebacken och hela regionen.',
   },
   {
     question: 'Kan jag boka ett kostnadsfritt platsbesök?',
-    answer: 'Självklart! Kontakta oss via formuläret eller ring Daniel på 076-826 72 71 så bokar vi in en tid som passar dig.',
+    answer: 'Självklart! Kontakta oss via formuläret eller ring 070-309 02 49 så bokar vi in en tid som passar dig.',
   },
 ];
 
@@ -48,7 +48,7 @@ const inputStyle: React.CSSProperties = {
 
 function focusInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) {
   e.currentTarget.style.borderColor = 'var(--color-primary)';
-  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(234, 88, 12, 0.15)';
+  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(194, 132, 71, 0.15)';
 }
 function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) {
   e.currentTarget.style.borderColor = '#e5e7eb';
@@ -57,8 +57,8 @@ function blurInput(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) 
 
 export default function Contact() {
   usePageTitle(
-    'Kontakta Dannes Bygg & Entreprenad AB | Mariestad & Skaraborg',
-    'Kontakta Daniel Larsson på Dannes Bygg & Entreprenad AB i Mariestad. Vi utför allt inom snickeri, renovering, tillbyggnad och totalentreprenad med 3D-ritningar i Skaraborg. Ring 076-826 72 71.'
+    'Kontakta LiDe Måleri AB | Dalarna',
+    'Kontakta LiDe Måleri AB. Vi utför allt inom invändigt och utvändigt måleri, tapetsering, spackling och fasadmålning i Dalarna med omnejd. Ring 070-309 02 49.'
   );
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -95,7 +95,7 @@ export default function Contact() {
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={150}>
               <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.08rem', margin: 0, maxWidth: '600px', marginInline: 'auto', lineHeight: 1.6 }}>
-                Vi återkopplar vanligtvis inom 24 timmar. Kostnadsfritt platsbesök & 3D-konsultation ingår alltid.
+                Vi återkopplar vanligtvis inom 24 timmar. Kostnadsfritt platsbesök & färgrådgivning ingår alltid.
               </p>
             </ScrollReveal>
           </div>
@@ -124,7 +124,7 @@ export default function Contact() {
                 Så når du oss
               </h2>
               <p style={{ color: 'var(--color-gray-600)', fontSize: '1rem', lineHeight: 1.8, margin: 0 }}>
-                Du kan nå oss via formuläret, telefon eller e-post. Oavsett om det gäller snickeri, kök, badrum, attefallshus, tillbyggnad eller 3D-ritningar med inredare hjälper vi dig gärna.
+                Du kan nå oss via formuläret, telefon eller e-post. Oavsett om det gäller inomhusmålning, tapetsering, fasadmålning eller större entreprenader hjälper vi dig gärna.
               </p>
 
               <div style={{ marginTop: '40px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -133,7 +133,7 @@ export default function Contact() {
                     width: '48px',
                     height: '48px',
                     minWidth: '48px',
-                    background: 'rgba(234, 88, 12, 0.1)',
+                    background: 'rgba(194, 132, 71, 0.1)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
@@ -147,12 +147,12 @@ export default function Contact() {
                     </p>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                       <a
-                        href="tel:0768267271"
+                        href="tel:0703090249"
                         style={{ color: 'var(--color-gray-600)', fontSize: '0.95rem', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
                         onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                         onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                       >
-                        076-826 72 71
+                        070-309 02 49
                       </a>
                     </div>
                   </div>
@@ -163,7 +163,7 @@ export default function Contact() {
                     width: '48px',
                     height: '48px',
                     minWidth: '48px',
-                    background: 'rgba(234, 88, 12, 0.1)',
+                    background: 'rgba(194, 132, 71, 0.1)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
@@ -176,7 +176,7 @@ export default function Contact() {
                       Plats & Område
                     </p>
                     <p style={{ margin: 0, color: 'var(--color-gray-600)', fontSize: '0.95rem', lineHeight: 1.5 }}>
-                      Bas i Mariestad • Skövde, Töreboda, Götene, Lidköping & hela Skaraborg
+                      Bas i Dalarna • Falun, Borlänge, Leksand, Mora & hela regionen
                     </p>
                   </div>
                 </div>
@@ -186,7 +186,7 @@ export default function Contact() {
                     width: '48px',
                     height: '48px',
                     minWidth: '48px',
-                    background: 'rgba(234, 88, 12, 0.1)',
+                    background: 'rgba(194, 132, 71, 0.1)',
                     borderRadius: '12px',
                     display: 'flex',
                     alignItems: 'center',
@@ -199,18 +199,17 @@ export default function Contact() {
                       E-post
                     </p>
                     <a
-                      href="mailto:dlarsson1991@gmail.com"
+                      href="mailto:linus@lide.nu"
                       style={{ color: 'var(--color-gray-600)', fontSize: '0.95rem', textDecoration: 'none', lineHeight: 1.5, transition: 'color 0.2s ease' }}
                       onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                       onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                     >
-                      dlarsson1991@gmail.com
+                      linus@lide.nu
                     </a>
                   </div>
                 </div>
               </div>
             </ScrollReveal>
-
 
             {/* Right: form */}
             <ScrollReveal animation="fade-left" duration={0.8} delay={100}>
@@ -228,102 +227,127 @@ export default function Contact() {
                 padding: '40px',
                 borderRadius: 'var(--border-radius-lg)',
                 boxShadow: '0 4px 24px rgba(0,0,0,0.06)',
+                border: '1px solid #f0ede8',
               }}>
-                <form onSubmit={e => e.preventDefault()}>
-                  <input
-                    type="text"
-                    placeholder="Ditt namn *"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                    style={inputStyle}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
-                  <input
-                    type="email"
-                    placeholder="Din e-postadress *"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    style={inputStyle}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
-                  <input
-                    type="tel"
-                    placeholder="Ditt telefonnummer"
-                    value={phone}
-                    onChange={e => setPhone(e.target.value)}
-                    style={inputStyle}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                  />
-                  <textarea
-                    placeholder="Beskriv ditt ärende *"
-                    value={message}
-                    onChange={e => setMessage(e.target.value)}
-                    style={{ ...inputStyle, minHeight: '140px', resize: 'vertical', marginBottom: '24px' } as React.CSSProperties}
-                    onFocus={focusInput}
-                    onBlur={blurInput}
-                    required
-                  />
+                <form onSubmit={(e) => { e.preventDefault(); alert('Tack för ditt meddelande! Vi återkopplar inom kort.'); }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }} className="contact-form-row">
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                        Namn *
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Ditt för- och efternamn"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        style={inputStyle}
+                        onFocus={focusInput}
+                        onBlur={blurInput}
+                      />
+                    </div>
+                    <div>
+                      <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                        Telefon *
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="070-000 00 00"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        style={inputStyle}
+                        onFocus={focusInput}
+                        onBlur={blurInput}
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                      E-post *
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="din.epost@exempel.se"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      style={inputStyle}
+                      onFocus={focusInput}
+                      onBlur={blurInput}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ display: 'block', fontSize: '0.88rem', fontWeight: 600, color: 'var(--color-text-dark)', marginBottom: '6px' }}>
+                      Meddelande *
+                    </label>
+                    <textarea
+                      required
+                      rows={5}
+                      placeholder="Beskriv vad du behöver hjälp med (t.ex. invändig målning, tapetsering eller fasad)..."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      style={{ ...inputStyle, resize: 'vertical' }}
+                      onFocus={focusInput}
+                      onBlur={blurInput}
+                    />
+                  </div>
+
                   <button
                     type="submit"
                     style={{
-                      width: '100%',
-                      padding: '14px',
                       background: 'var(--color-primary)',
                       color: '#ffffff',
-                      fontWeight: 700,
-                      fontFamily: 'var(--font-family)',
-                      fontSize: '0.95rem',
                       border: 'none',
+                      padding: '16px 36px',
                       borderRadius: 'var(--border-radius-pill)',
+                      fontSize: '1rem',
+                      fontWeight: 700,
                       cursor: 'pointer',
+                      width: '100%',
+                      fontFamily: 'var(--font-family)',
+                      boxShadow: '0 4px 16px rgba(194, 132, 71, 0.35)',
                       transition: 'all 0.3s ease',
                     }}
-                    onMouseEnter={e => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.background = 'var(--color-primary-hover)';
-                      el.style.transform = 'translateY(-2px)';
-                      el.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.45)';
-                    }}
-                    onMouseLeave={e => {
-                      const el = e.currentTarget as HTMLElement;
-                      el.style.background = 'var(--color-primary)';
-                      el.style.transform = 'translateY(0)';
-                      el.style.boxShadow = 'none';
-                    }}
+                    onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-2px)')}
+                    onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
                   >
                     Skicka meddelande
                   </button>
                 </form>
               </div>
             </ScrollReveal>
+
           </div>
         </div>
       </section>
 
       {/* ── SECTION C: FAQ ────────────────────────────────────── */}
-      <section style={{ background: 'var(--color-dark)', padding: '100px 0' }}>
+      <section style={{ background: '#ffffff', padding: '80px 0', borderTop: '1px solid #e2e8f0' }}>
         <div style={container}>
           <FAQAccordion
-            dark={true}
             items={faqItems}
-            title="Vanliga frågor"
-            subtitle="Svar på det vi ofta får höra. Hittar du inte svaret är du alltid välkommen att ringa oss!"
-            buttonText="Skicka meddelande"
-            buttonLink="/kontakt"
+            title="Frågor & svar inför kontakt"
+            subtitle="Här hittar du svar på de vanligaste funderingarna innan du anlitar oss."
           />
         </div>
       </section>
 
+      {/* ── SECTION D: CTA BANNER ──────────────────────────────── */}
       <CTABanner />
 
       <style>{`
-        @media (max-width: 768px) {
-          .contact-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+        @media (max-width: 900px) {
+          .contact-grid {
+            grid-template-columns: 1fr !important;
+            gap: 40px !important;
+          }
+          .contact-form-row {
+            grid-template-columns: 1fr !important;
+            gap: 0 !important;
+          }
         }
       `}</style>
     </main>

@@ -68,7 +68,7 @@ export default function CTABanner({ heading = defaultHeading, checkItems = defau
       {/* Background Video */}
       <video
         ref={videoRef}
-        src="/cta-background-video.mp4"
+        src="https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260828_110921_a63f5f32-c347-4b84-a59d-783571f6a567.mp4"
         preload="auto"
         autoPlay
         loop
@@ -84,7 +84,7 @@ export default function CTABanner({ heading = defaultHeading, checkItems = defau
           pointerEvents: 'none',
         }}
       >
-        <source src="/cta-background-video.mp4" type="video/mp4" />
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3G5LlmMYORSdAk8SxzXrK2S0Is5/hf_20260828_110921_a63f5f32-c347-4b84-a59d-783571f6a567.mp4" type="video/mp4" />
       </video>
 
       {/* Dark Premium Fading Overlay */}

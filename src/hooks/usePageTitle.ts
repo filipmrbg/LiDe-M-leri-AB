@@ -9,7 +9,7 @@ export function usePageTitle(title: string, description?: string) {
     document.title = title;
 
     // 2. Update Description
-    const defaultDesc = "Dannes Bygg & Entreprenad AB utför allt inom snickeri, renovering, tillbyggnad, altaner och totalentreprenad med 3D-ritningar i Mariestad och Skaraborg.";
+    const defaultDesc = "LiDe Måleri AB utför allt inom invändigt och utvändigt måleri, tapetsering, spackling och fasadmålning i Dalarna med omnejd. Kontakta oss för fri offert!";
     const activeDesc = description || defaultDesc;
     
     let metaDescription = document.querySelector('meta[name="description"]');
@@ -39,9 +39,9 @@ export function usePageTitle(title: string, description?: string) {
     // 5. Update Canonical Link & Absolute URL
     const origin = typeof window !== 'undefined' && window.location.origin.startsWith('http')
       ? window.location.origin
-      : 'https://dannes-bygg-entreprenad-ab.vercel.app';
+      : 'https://lidemaleri.se';
     const absoluteUrl = `${origin}${pathname === '/' ? '' : pathname}`;
-    const ogImageUrl = 'https://media.fastdl.app/get?__sig=wQCmRJIjxgPJXQtrJu9sXA&__expires=1787307844&uri=https%3A%2F%2Fscontent-waw2-1.cdninstagram.com%2Fv%2Ft51.82787-19%2F660456553_18073931414295507_2516226103266130246_n.jpg%3F_nc_cat%3D111%26ccb%3D7-5%26_nc_sid%3Dbf7eb4%26efg%3DeyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDI0LkMzIn0%253D%26_nc_ohc%3D_EVOwaqh7PcQ7kNvwFbTUQb%26_nc_oc%3DAdoA7zbqyNoJeBSYaveHQyp9oenggjfgl9MKVz5-5KXZHha06jNrnoXfAOCi0F55PO4%26_nc_zt%3D24%26_nc_ht%3Dscontent-waw2-1.cdninstagram.com%26_nc_gid%3DOdVXxb8US8kfl_w0p2tDyQ%26_nc_ss%3D7b6a8%26oh%3D00_AQFceCLC_5BihDYxQpv1fSiFsAtoBTUV07T4jQ3FJnvnvg%26oe%3D6A8DDD3F&filename=660456553_18073931414295507_2516226103266130246_n.jpg';
+    const ogImageUrl = 'https://media.fastdl.app/get?__sig=60gyNjdptzxMJ7FochySEQ&__expires=1787913596&uri=https%3A%2F%2Finstagram.fdac24-5.fna.fbcdn.net%2Fv%2Ft51.2885-19%2F180430162_359569148844349_1575881971785143854_n.jpg%3Fstp%3Ddst-jpg_s150x150_tt6%26_nc_cat%3D102%26ccb%3D7-5%26_nc_sid%3Df7ccc5%26efg%3DeyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%253D%26_nc_ohc%3DGfAFGHybTo0Q7kNvwFL1nr2%26_nc_oc%3DAdpHcpiUU8sgSVivfT_9Lk0qHDRPZ8V-uZ1E-UINhhGU3iNP1lZDiqoMV05JdDmD5Ps%26_nc_zt%3D24%26_nc_ht%3Dinstagram.fdac24-5.fna%26_nc_ss%3D7baaf%26oh%3D00_AQFkzo1ZaG-w8RaNBLDKXpprUwy1sBOgDvxPRnjNaasniA%26oe%3D6A972C00&filename=180430162_359569148844349_1575881971785143854_n.jpg';
 
     let canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {

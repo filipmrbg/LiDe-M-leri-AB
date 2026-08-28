@@ -104,28 +104,17 @@ export default function Navbar() {
 
     if (href.includes('#')) {
       const [path, hashId] = href.split('#');
-      if (location.pathname === path) {
+      const targetPath = path || '/';
+
+      if (location.pathname === targetPath) {
         const el = document.getElementById(hashId);
         if (el) {
-          const y = el.getBoundingClientRect().top + window.pageYOffset - 100;
+          const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
           window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
           window.history.pushState(null, '', `#${hashId}`);
         }
       } else {
-        navigate(href);
-      }
-    } else if (href.startsWith('/#')) {
-      const id = href.slice(2);
-      if (location.pathname === '/') {
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) {
-            const y = el.getBoundingClientRect().top + window.pageYOffset - 90;
-            window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
-          }
-        }, 100);
-      } else {
-        navigate('/', { state: { scrollTo: id } });
+        navigate(`/#${hashId}`, { state: { scrollTo: hashId } });
       }
     } else {
       navigate(href);
@@ -300,23 +289,30 @@ export default function Navbar() {
                 key={link.href}
                 onClick={() => handleNavClick(link.href)}
                 style={{
-                  background: active ? 'rgba(255,255,255,0.1)' : 'none',
+                  background: active ? 'var(--color-primary)' : 'transparent',
                   border: 'none',
                   cursor: 'pointer',
-                  color: active ? 'var(--color-primary)' : 'var(--color-white)',
+                  color: '#ffffff',
                   fontFamily: 'var(--font-family)',
-                  fontSize: '0.9rem',
-                  fontWeight: active ? 600 : 400,
-                  padding: '10px 20px',
+                  fontSize: '0.92rem',
+                  fontWeight: active ? 700 : 500,
+                  padding: '9px 20px',
                   borderRadius: 'var(--border-radius-pill)',
-                  transition: 'background 0.2s ease, color 0.2s ease',
+                  boxShadow: active ? '0 2px 12px rgba(0, 0, 0, 0.25)' : 'none',
+                  transition: 'all 0.2s ease',
                   whiteSpace: 'nowrap',
                 }}
                 onMouseEnter={e => {
-                  if (!active) (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.07)';
+                  if (!active) {
+                    (e.currentTarget as HTMLElement).style.background = 'rgba(255, 255, 255, 0.12)';
+                    (e.currentTarget as HTMLElement).style.color = '#ffffff';
+                  }
                 }}
                 onMouseLeave={e => {
-                  if (!active) (e.currentTarget as HTMLElement).style.background = 'none';
+                  if (!active) {
+                    (e.currentTarget as HTMLElement).style.background = 'transparent';
+                    (e.currentTarget as HTMLElement).style.color = '#ffffff';
+                  }
                 }}
               >
                 {link.label}
@@ -329,7 +325,7 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
           <div className="phone-link-wrapper" style={{ position: 'relative', display: 'flex', alignItems: 'center', gap: '12px' }}>
             <a
-              href="tel:0768267271"
+              href="tel:0703090249"
               className="phone-link"
               style={{
                 display: 'flex',
@@ -347,7 +343,7 @@ export default function Navbar() {
               onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-white)')}
             >
               <Phone size={14} color="var(--color-primary)" />
-              <span>076-826 72 71</span>
+              <span>070-309 02 49</span>
             </a>
           </div>
 
@@ -366,19 +362,19 @@ export default function Navbar() {
               transition: 'all 0.3s ease',
               display: 'inline-block',
               cursor: 'pointer',
-              boxShadow: '0 4px 16px rgba(234, 88, 12, 0.35)',
+              boxShadow: '0 4px 16px rgba(194, 132, 71, 0.35)',
             }}
             onMouseEnter={e => {
               const el = e.currentTarget as HTMLElement;
               el.style.background = 'var(--color-primary-hover)';
               el.style.transform = 'translateY(-2px)';
-              el.style.boxShadow = '0 8px 24px rgba(234, 88, 12, 0.5)';
+              el.style.boxShadow = '0 8px 24px rgba(194, 132, 71, 0.5)';
             }}
             onMouseLeave={e => {
               const el = e.currentTarget as HTMLElement;
               el.style.background = 'var(--color-primary)';
               el.style.transform = 'translateY(0)';
-              el.style.boxShadow = '0 4px 16px rgba(234, 88, 12, 0.35)';
+              el.style.boxShadow = '0 4px 16px rgba(194, 132, 71, 0.35)';
             }}
           >
             <span className="offert-full">Begär offert</span>
@@ -388,7 +384,7 @@ export default function Navbar() {
           {/* Phone icon — shown on mobile only */}
           <div className="mobile-phone-btn" style={{ position: 'relative', display: 'none' }}>
             <a
-              href="tel:0768267271"
+              href="tel:0703090249"
               aria-label="Ring oss"
               style={{
                 display: 'flex',
@@ -541,8 +537,8 @@ export default function Navbar() {
             Ring oss direkt:
           </span>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
-            <a href="tel:0768267271" style={{ color: 'var(--color-white)', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
-              <Phone size={14} color="var(--color-primary)" /> 076-826 72 71
+            <a href="tel:0703090249" style={{ color: 'var(--color-white)', fontWeight: 600, fontSize: '0.95rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+              <Phone size={14} color="var(--color-primary)" /> 070-309 02 49
             </a>
           </div>
         </div>
@@ -558,8 +554,8 @@ export default function Navbar() {
           height: 15px;
         }
         .nav-logo {
-          height: 88px;
-          max-height: 14vh;
+          height: 138px;
+          max-height: 22vh;
           width: auto;
           display: block;
           object-fit: contain;
@@ -567,11 +563,11 @@ export default function Navbar() {
           padding: 0;
           border-radius: 0;
           box-shadow: none;
-          filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.45));
+          filter: drop-shadow(0 2px 14px rgba(0, 0, 0, 0.55));
           transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .nav-logo.scrolled {
-          height: 68px;
+          height: 92px;
           background-color: transparent;
           padding: 0;
           border-radius: 0;
@@ -588,11 +584,11 @@ export default function Navbar() {
           nav.navbar-el.scrolled { padding: 10px 20px !important; }
           .mobile-phone-btn { display: flex !important; align-items: center; }
           .nav-logo {
-            height: 62px;
+            height: 90px;
             padding: 0;
           }
           .nav-logo.scrolled {
-            height: 50px;
+            height: 68px;
             padding: 0;
           }
         }

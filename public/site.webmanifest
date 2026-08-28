@@ -1,15 +1,15 @@
 {
-  "name": "Dannes Bygg & Entreprenad AB",
-  "short_name": "Dannes Bygg",
-  "description": "Utför allt inom snickeri & renoveringsprojekt i Mariestad och Skaraborg. 3D-ritningar med inredare.",
+  "name": "LiDe Måleri AB",
+  "short_name": "LiDe Måleri",
+  "description": "Måleriarbeten och tapetsering i Dalarna med omnejd.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#ea580c",
+  "theme_color": "#c28447",
   "icons": [
     {
-      "src": "/logo.png",
-      "sizes": "1024x1024",
+      "src": "/favicon.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ]

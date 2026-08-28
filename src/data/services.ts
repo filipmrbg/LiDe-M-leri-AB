@@ -34,118 +34,118 @@ export interface ServiceItem {
 
 export const services: ServiceItem[] = [
   {
-    slug: 'nybyggnation',
-    title: 'Nybyggnation',
-    shortDescription: 'Kundanpassade attefallshus, garage, förråd och fritidsboenden byggda i lösvirke från stabil grund till färdigt tak.',
-    heroText: 'Förverkliga ditt nybygge i Mariestad och Skaraborg – från mark och stomme till färdigt hus.',
-    detailedDescription: `Vill du bygga ett attefallshus, ett rymligt garage eller ett nytt fritidsboende? Hos Dannes Bygg & Entreprenad AB bygger vi i lösvirke efter dina exakta önskemål och mått.
+    slug: 'invandigt-maleri',
+    title: 'Invändigt Måleri',
+    shortDescription: 'Noggrann målning av väggar, tak, lister och dörrar samt underarbete med spackling och slipning för en perfekt och slät yta.',
+    heroText: 'Skapa trivsel och nytt liv i hemmet med professionellt inomhusmåleri i Dalarna med omnejd.',
+    detailedDescription: `Vill du förnya vardagsrummet, sovrummet eller hela bostaden med nya kulörer? LiDe Måleri AB utför alla typer av invändiga måleriarbeten med stor noggrannhet och yrkesstolthet.
 
-Vi hjälper dig från idé till nyckelfärdigt bygge med stabil grund, täta konstruktioner och energieffektiva lösningar anpassade för det svenska klimatet.`,
-    heroImage: '/service-smahusbyggnation.webp',
-    image: '/service-smahusbyggnation.webp',
-    href: '/tjanster#nybyggnation',
-    tag: 'Nybyggnation',
-    badge: 'Lösvirkesbygge',
-    highlights: [
-      'Skräddarsydda attefallshus och garage',
-      'Fritidshus och förrådsbyggnader',
-      'Gediget hantverk i lösvirke från grund till tak',
-      'Hjälp med ritningar och bygglovsunderlag',
-    ],
-    faq: [
-      {
-        question: 'Hur lång tid tar ett attefallshus eller garage?',
-        answer: 'Ett nyckelfärdigt attefallshus eller garage tar vanligtvis mellan 4 och 8 veckor från byggstart till färdigställande.',
-      },
-      {
-        question: 'Hjälper ni till med bygglov och anmälan?',
-        answer: 'Ja, vi bistår med kompletta ritningsunderlag för bygglov eller anmälan till kommunen.',
-      },
-    ],
-  },
-  {
-    slug: 'renovering',
-    title: 'Renovering',
-    shortDescription: 'Gediget hantverk inom kök, badrum, golvläggning och fönsterbyten med fullt fokus på finish och kvalitet.',
-    heroText: 'Förvandla ditt hem med noggrant hantverk och professionell renovering i Mariestad och Skaraborg.',
-    detailedDescription: `Planerar du att renovera köket, badrummet eller göra en genomgripande renovering av hela bostaden? Dannes Bygg & Entreprenad AB hjälper dig genom hela processen med stor yrkesstolthet.
-
-Vi utför allt från köksmontage och certifierade våtrumsarbeten till golvläggning, fönsterbyten och specialsnickerier. Som privatperson nyttjar du 30 % ROT-avdrag direkt på fakturan.`,
-    heroImage: '/service-renovering.webp',
-    image: '/service-renovering.webp',
-    href: '/tjanster#renovering',
-    tag: 'Renovering',
+Vi lägger största vikt vid ett gediget underarbete – spackling, slipning och grundmålning – vilket är hemligheten bakom en jämn och hållbar slutfinish. Som privatperson nyttjar du 30 % ROT-avdrag direkt på fakturan.`,
+    heroImage: '/gallery/gallery-2.jpg',
+    image: '/gallery/gallery-2.jpg',
+    href: '/tjanster#invandigt-maleri',
+    tag: 'Invändigt Måleri',
     badge: 'ROT-avdrag 30%',
     highlights: [
-      'Köksrenovering och montage',
-      'Badrum och certifierade våtrum',
-      'Golvläggning och finsnickeri',
-      'Fönster- och dörrbyten',
+      'Målning av väggar och tak',
+      'Målning av lister, dörrfoder och fönster',
+      'Spackling, bredspackling och slipning',
+      'Färgrådgivning och personliga kulörval',
     ],
     faq: [
       {
-        question: 'Hur fungerar ROT-avdraget vid renovering?',
-        answer: 'Som privatperson kan du dra av 30 % av arbetskostnaden upp till 50 000 kr per person och år. Vi sköter all administration direkt med Skatteverket och drar beloppet på fakturan.',
+        question: 'Hur lång tid tar ett invändigt måleriprojekt?',
+        answer: 'Ett enskilt rum tar oftast 2–4 arbetsdagar inklusive torktider för spackel och färg. Vid målning av en hel villa eller lägenhet gör vi en tydlig tidsplan tillsammans.',
       },
       {
-        question: 'Kan man bo kvar under renoveringstiden?',
-        answer: 'Vid mindre renoveringar går det alldeles utmärkt. Vid större projekt planerar vi arbetet i etapper så att din vardag påverkas så lite som möjligt.',
+        question: 'Flyttar och täcker ni möbler innan målning?',
+        answer: 'Ja, vi skyddar golv och möbler noggrant med täckpapp och plast innan arbetet påbörjas för att säkerställa ett rent och skadefritt resultat.',
       },
     ],
   },
   {
-    slug: 'tillbyggnad',
-    title: 'Tillbyggnad',
-    shortDescription: 'Fler kvadratmeter boyta, inglasade uterum, rymliga altaner och taklyft anpassade efter husets arkitektur.',
-    heroText: 'Skapa mer plats att leva på med kundanpassade tillbyggnader och altaner i Skaraborg.',
-    detailedDescription: `Behöver du större boyta, ett nytt sovrum eller en rymlig altan? En genomtänkt tillbyggnad är det bästa sättet att öka både trivsel och fastighetsvärde.
+    slug: 'fasadmalning',
+    title: 'Utvändigt Måleri & Fasad',
+    shortDescription: 'Hållbar fasadmålning, fönstermålning och trävård som skyddar din fastighet mot det nordiska klimatet i många år framöver.',
+    heroText: 'Ge huset ett långvarigt skydd och ett vackert lyft med professionell fasadmålning i Dalarna.',
+    detailedDescription: `En väl underhållen fasad skyddar fastigheten mot fukt, röta och väderpåverkan. LiDe Måleri AB utför kompletta utvändiga måleriarbeten på villor, fritidshus, garage och kommersiella fastigheter i Dalarna.
 
-Vi bygger till villor och fritidshus med nyckelfärdiga lösningar som harmonierar med husets befintliga stil och arkitektur.`,
-    heroImage: '/service-ombyggnation.webp',
-    image: '/service-ombyggnation.webp',
-    href: '/tjanster#tillbyggnad',
-    tag: 'Tillbyggnad',
-    badge: 'Kundanpassat',
+Vi börjar alltid med noggrann fasadtvätt, skrapning av lös färg och grundoljning innan fasaden färdigstryks med premiumfärg anpassad för vårt klimat.`,
+    heroImage: '/gallery/gallery-1.jpg',
+    image: '/gallery/gallery-1.jpg',
+    href: '/tjanster#fasadmalning',
+    tag: 'Utvändigt Måleri',
+    badge: 'Kvalitetsfärg',
     highlights: [
-      'Utbyggnad av villa och fritidshus',
-      'Altaner, trädäck och verandor',
-      'Inglasade uterum',
-      'Taklyft och fasadarbeten',
+      'Fasadmålning av träfasad och puts',
+      'Fönstermålning och renovering av vindskivor',
+      'Fasadtvätt, algbehandling och skrapning',
+      'Målning av garage, attefallshus och staket',
     ],
     faq: [
       {
-        question: 'Krävs det bygglov för tillbyggnad?',
-        answer: 'Mindre tillbyggnader upp till 15 kvm (attefallsutbyggnad) och altaner under vissa höjder kan ofta utföras utan bygglov. Vi hjälper dig med alla nödvändiga handlingar.',
+        question: 'När på året är det bäst att måla fasaden utomhus?',
+        answer: 'Den bästa perioden för fasadmålning i Sverige är från maj till september när dygnet är torrt och temperaturen är över 8–10 grader.',
+      },
+      {
+        question: 'Hur ofta behöver en träfasad målas om?',
+        answer: 'Beroende på husets läge, väderstreck och färgtyp håller en fackmannamässigt målad fasad vanligtvis mellan 10 och 15 år.',
+      },
+    ],
+  },
+  {
+    slug: 'tapetsering',
+    title: 'Tapetsering & Spackling',
+    shortDescription: 'Skickligt hantverk med perfekt mönsterpassning, skarvfria väggar och armeringsduk för både klassiska och moderna designtapeter.',
+    heroText: 'Sätt personlig prägel på dina rum med exakt tapetsering och högklassig ytfinish i Dalarna.',
+    detailedDescription: `Att tapetsera kräver noggrannhet och rätt teknik för att skarvar och mönster ska stämma perfekt. LiDe Måleri AB har lång erfarenhet av att sätta upp allt från mönstrade designtapeter och fototapeter till armeringsduk och renoveringstapeter.
+
+Vi säkerställer att underlaget är fullständigt slätt innan tapetsering så att slutresultatet blir helt felfritt.`,
+    heroImage: '/gallery/gallery-4.jpg',
+    image: '/gallery/gallery-4.jpg',
+    href: '/tjanster#tapetsering',
+    tag: 'Tapetsering',
+    badge: 'Hög Precision',
+    highlights: [
+      'Mönsterpassad tapetsering och fondväggar',
+      'Uppsättning av armeringsduk och easy cover',
+      'Bredspackling och grundbehandling',
+      'Rådgivning kring materialval och limtyp',
+    ],
+    faq: [
+      {
+        question: 'Måste gamla tapeter tas bort före omtapetsering?',
+        answer: 'Om den gamla tapeten sitter fast ordentligt räcker det oftast med att skära bort lösa skarvar och spackla slätt. Sitter den löst rekommenderar vi att riva eller bredspackla med armeringsduk.',
       },
     ],
   },
   {
     slug: 'totalentreprenad',
-    title: 'Totalentreprenad',
-    shortDescription: 'Ett samlat helhetsansvar från idé och 3D-ritning med inredare till godkänt och nyckelfärdigt resultat.',
-    heroText: 'Bekymmersfritt byggande – en enda kontaktperson för alla hantverkare.',
-    detailedDescription: `Med totalentreprenad från Dannes Bygg & Entreprenad AB slipper du samordna snickare, elektriker, rörmokare och målare på egen hand.
+    title: 'Totalentreprenad Måleri',
+    shortDescription: 'Ett samlat helhetsansvar för större måleriprojekt vid nybyggnationer, renoveringar och uppdrag för bostadsrättsföreningar.',
+    heroText: 'Bekymmersfritt måleri – en enda kontaktperson för alla dina måleribehov i Dalarna.',
+    detailedDescription: `Vid större ombyggnader, nyproduktion eller renovering av flerbostadshus tar LiDe Måleri AB det fulla ansvaret för målerientreprenaden.
 
-Daniel Larsson är din personliga kontaktperson genom hela projektet. Vi tar det fulla ansvaret för planering, kvalitet och genomförande med fasta priser och tydliga tidsplaner.`,
-    heroImage: '/service-totalentreprenad.webp',
-    image: '/service-totalentreprenad.webp',
+Du får en dedikerad personlig kontaktperson genom hela projektet. Vi säkerställer tydliga tidsplaner, fasta priser och löpande avstämningar så att du kan känna dig helt trygg.`,
+    heroImage: '/gallery/gallery-6.jpg',
+    image: '/gallery/gallery-6.jpg',
     href: '/tjanster#totalentreprenad',
     tag: 'Totalentreprenad',
     badge: '100% Trygghet',
     highlights: [
-      'En enda projektledare (Daniel Larsson)',
-      'Fotorealistiska 3D-ritningar med inredare',
-      'Full samordning av el, VVS, snickeri och måleri',
-      'Tydlig tidsplan och fast pris',
+      'En dedikerad kontaktperson & projektledare',
+      'Måleri vid nybyggnation och tillbyggnad',
+      'Större projekt för BRF och fastighetsägare',
+      'Tydlig tidsplan och fast offert',
     ],
     faq: [
       {
-        question: 'Vad innebär totalentreprenad för mig som beställare?',
-        answer: 'Du har endast ett avtal och en kontaktperson. Vi leder och ansvarar för alla yrkesgrupper så att hela bygget flyter på tryggt och enligt tidsplan.',
+        question: 'Vad innebär totalentreprenad inom måleri?',
+        answer: 'Vi tar helhetsansvaret för planering, materialleveranser, underarbete och slutbehandling så att du slipper samordna olika delmoment själv.',
       },
       {
-        question: 'Erbjuder ni 3D-ritningar innan start?',
-        answer: 'Ja, vi kan visualisera ditt projekt i fotorealistisk 3D tillsammans med inredare innan arbetet startar så att du ser slutresultatet i förväg.',
+        question: 'Utför ni måleriarbeten åt företag och bostadsrättsföreningar?',
+        answer: 'Ja, vi utför regelbundet uppdrag för företag, BRF:er och fastighetsägare i Falun, Borlänge och övriga Dalarna.',
       },
     ],
   },

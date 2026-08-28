@@ -1,17 +1,11 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Instagram, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import images from '../data/images';
-
-const serviceLinks = [
-  { label: 'Nybyggnation', href: '/tjanster#nybyggnation' },
-  { label: 'Renovering', href: '/tjanster#renovering' },
-  { label: 'Tillbyggnad', href: '/tjanster#tillbyggnad' },
-  { label: 'Totalentreprenad', href: '/tjanster#totalentreprenad' },
-];
+import services from '../data/services';
 
 const socialIcons = [
-  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/dannesbygg/' },
-  { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/p/DannesBygg-61573343107638/' },
+  { Icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/lide.maleri' },
+  { Icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/LideMaleriAB?locale=sv_SE' },
 ];
 
 export default function Footer() {
@@ -57,7 +51,7 @@ export default function Footer() {
               </Link>
             </div>
             <p style={{ color: 'var(--color-gray-600)', fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 20px 0' }}>
-              Dannes Bygg & Entreprenad AB drivs av Daniel Larsson. Vi utför allt inom snickeri, renovering, tillbyggnad och totalentreprenad med 3D-ritningar tillsammans med inredare i Mariestad och Skaraborg.
+              LiDe Måleri AB utför allt inom invändigt och utvändigt måleri, tapetsering, spackling och fasadmålning med högsta kvalitet och yrkesstolthet i Dalarna med omnejd.
             </p>
             <div style={{ display: 'flex', gap: '12px' }}>
               {socialIcons.map(({ Icon, label, href }) => (
@@ -100,10 +94,10 @@ export default function Footer() {
               Tjänster
             </h3>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-              {serviceLinks.map(link => (
-                <li key={link.href}>
+              {services.map(svc => (
+                <li key={svc.slug}>
                   <Link
-                    to={link.href}
+                    to={svc.href}
                     style={{
                       color: 'var(--color-gray-600)',
                       textDecoration: 'none',
@@ -115,7 +109,7 @@ export default function Footer() {
                     onMouseEnter={e => (e.currentTarget.style.color = 'var(--color-primary)')}
                     onMouseLeave={e => (e.currentTarget.style.color = 'var(--color-gray-600)')}
                   >
-                    {link.label}
+                    {svc.title}
                   </Link>
                 </li>
               ))}
@@ -130,23 +124,23 @@ export default function Footer() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '0.95rem' }}>
 
               <a
-                href="mailto:dlarsson1991@gmail.com"
+                href="mailto:linus@lide.nu"
                 className="footer-contact-item"
               >
                 <div className="footer-contact-icon">
                   <Mail size={16} strokeWidth={2} />
                 </div>
-                <span>dlarsson1991@gmail.com</span>
+                <span>linus@lide.nu</span>
               </a>
 
               <a
-                href="tel:0768267271"
+                href="tel:0703090249"
                 className="footer-contact-item"
               >
                 <div className="footer-contact-icon">
                   <Phone size={16} strokeWidth={2} />
                 </div>
-                <span>076-826 72 71</span>
+                <span>070-309 02 49</span>
               </a>
 
               <div
@@ -155,7 +149,7 @@ export default function Footer() {
                 <div className="footer-contact-icon">
                   <MapPin size={16} strokeWidth={2} />
                 </div>
-                <span>Mariestad • Skaraborg • Västra Götaland</span>
+                <span>Dalarna • Falun • Borlänge • Leksand</span>
               </div>
             </div>
           </div>
@@ -177,7 +171,7 @@ export default function Footer() {
           }}
         >
           <div style={{ display: 'flex', gap: '12px', alignItems: 'center', color: 'var(--color-gray-600)', fontSize: '0.875rem', flexWrap: 'wrap' }}>
-            <span>© 2026 - Dannes Bygg & Entreprenad AB</span>
+            <span>© 2026 - LiDe Måleri AB</span>
           </div>
         </div>
       </div>
@@ -201,7 +195,7 @@ export default function Footer() {
           color: var(--color-primary);
           display: flex;
           align-items: center;
-          justifyContent: center;
+          justify-content: center;
           flex-shrink: 0;
         }
         .footer-contact-static {
@@ -226,4 +220,3 @@ export default function Footer() {
     </footer>
   );
 }
-
