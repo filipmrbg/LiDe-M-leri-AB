@@ -1,0 +1,16 @@
+{
+  "name": "Dannes Bygg & Entreprenad AB",
+  "short_name": "Dannes Bygg",
+  "description": "Utför allt inom snickeri & renoveringsprojekt i Mariestad och Skaraborg. 3D-ritningar med inredare.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ea580c",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ]
+}
